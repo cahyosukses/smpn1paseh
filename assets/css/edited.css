@@ -1,0 +1,170 @@
+
+ul.menu-kiri {
+	list-style: none;
+	color: #fff;
+}	
+
+.menu-kiri:first-child {
+	
+}
+	ul.menu-kiri > li {
+		border-radius: none;
+		list-style: none;
+		background-color: #0ea4da;
+		border-bottom: 1px solid #0d96c8;
+		text-shadow: 0 0 1px rgba(0,0,0,.2);
+		font-family: 'Droid Serif', serif;
+		opacity: 1;
+	}
+
+	ul.menu-kiri > li:first-child {
+		border-top-right-radius: 4px;
+  		border-top-left-radius: 4px;
+	}
+
+	ul.menu-kiri > li:last-child {
+		border-bottom-right-radius: 4px;
+  		border-bottom-left-radius: 4px;
+	}
+
+	ul.menu-kiri > li >a:hover{
+		/*background: #0ea4da;*/
+		
+	}
+
+	.child-parent {
+		background: #0b7aa3;
+		list-style: none;
+		padding: 0;
+	} 
+	.child-parent > li {
+		padding-left: 40px;
+		padding-bottom: 5px;
+		padding-top: 5px;
+	}
+
+	.child-parent > li > a {
+		color: #fff;
+	}
+
+	.child-parent > li:hover {
+		text-decoration: none;
+	}
+
+.plus-times {
+    float: right;
+}
+
+.fa.plus-times:before {
+    content: "\f067";
+}
+
+.active > a > .fa.plus-times {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.plus-minus {
+    float: right;
+}
+
+.fa.plus-minus:before {
+    content: "\f067";
+}
+
+.active > a > .fa.plus-minus:before {
+    content: "\f068";
+}
+
+/*logo img*/
+.logo-img {
+	width: 270px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	margin-bottom: 10px;
+	border: 2px solid #0EA4DA;
+/*	-webkit-box-shadow: 0 0 1px 1px rgba(12,136,181,.4);
+	box-shadow: 0 0 1px 1px rgba(12,136,181,.4);*/
+}
+
+
+#map_canvas { 
+	height:300px;
+	border: 1px solid #aaa;
+}
+/*======tambah=====*/
+.margin-right{
+  margin-right: 10px;
+}
+
+th{
+  text-align: center;
+}
+
+.kiri{
+	text-align: left !important;
+	font-weight: 100;
+}
+.modal-custom {
+  width: 900px;
+}
+
+.margin-bawah{
+	margin-bottom: 10px;
+}
+
+.justify{
+	text-align: justify !important;
+}
+
+.hidden{
+	display: none;
+}
+
+.pad{
+	padding-left: 250px;
+	padding-right: 250px;
+}
+
+/* bootstrap fix */
+#map_canvas img {
+    max-width: none;
+}
+#map_canvas label { 
+  width: auto; 
+  display:inline; 
+} 
+
+/*=====PANEL BODY======*/
+.panel-body{
+	min-height: 450px;
+}
+/*=====END PANEL BODY======*/
+
+
+
+/*==========FOOTER===========*/
+footer{
+	text-align: center;
+}
+/*==========END FOOTER===========*/
+
+
+/*============== AKSES FORBIDDEN ==================*/
+.dialog h4 a{
+    color: #29166F;
+}
+div.dialog {
+	width: 25em;
+	padding: 0 4em;
+	margin: 4em auto 0 auto;
+	border: 1px solid #ccc;
+	border-right-color: #999;
+	border-bottom-color: #999;
+	text-align: center;
+}
+.forbidden { font-size: 100%; color: #f00; line-height: 1.5em; }
