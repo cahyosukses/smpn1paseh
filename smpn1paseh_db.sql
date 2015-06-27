@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2015 at 02:15 PM
+-- Generation Time: Jun 26, 2015 at 03:47 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `tbl_data_guru` (
   `tempat_lahir` varchar(20) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `jk` enum('l','p') NOT NULL,
-  `telepon` int(12) NOT NULL,
+  `telepon` varchar(12) NOT NULL,
   `email` varchar(35) NOT NULL,
   `mapel` int(11) DEFAULT NULL,
   `status` enum('aktif','tidak') NOT NULL DEFAULT 'aktif',
@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS `tbl_data_guru` (
 --
 
 INSERT INTO `tbl_data_guru` (`nip`, `password`, `nama`, `foto`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `jk`, `telepon`, `email`, `mapel`, `status`, `id_penambah`) VALUES
-(1, 'e10adc3949ba59abbe56e057f20f883e', 'Tandris', '1.jpg', 'Cimahi', 'bandung', '1992-06-21', 'l', 123456, 'tandrisopiandi@gmail.com', 4, 'aktif', 1),
-(10, 'e10adc3949ba59abbe56e057f20f883e', 'Miraj', '10.JPG', 'Majalaya', 'bandung', '1992-05-13', 'l', 123456, 'rhafkasanjani@gmail.com', 1, 'aktif', 1),
-(11, 'e10adc3949ba59abbe56e057f20f883e', 'Azhari', '11.jpg', 'Cibiru', 'Bandung', '1990-06-09', 'l', 123456, 'azhari@gmail.com', 7, 'aktif', 1),
-(1028, 'e10adc3949ba59abbe56e057f20f883e', 'Ikhsan', '1028.JPG', 'Ciparay', 'bandung', '1992-05-11', 'p', 123456, 'ikhsan@gmail.com', 2, 'aktif', 1);
+(1, 'e10adc3949ba59abbe56e057f20f883e', 'Tandris', '1.jpg', 'Cimahi', 'bandung', '1992-06-21', 'l', '123456', 'tandrisopiandi@gmail.com', 4, 'aktif', 1),
+(10, 'e10adc3949ba59abbe56e057f20f883e', 'Miraj', '10.JPG', 'Majalaya', 'bandung', '1992-05-13', 'l', '123456', 'rhafkasanjani@gmail.com', 1, 'aktif', 1),
+(11, 'e10adc3949ba59abbe56e057f20f883e', 'Azhari', '11.jpg', 'Cibiru', 'Bandung', '1990-06-09', 'l', '123456', 'azhari@gmail.com', 7, 'aktif', 1),
+(1028, 'e10adc3949ba59abbe56e057f20f883e', 'Ikhsan', '1028.JPG', 'Ciparay', 'bandung', '1992-05-11', 'p', '123456', 'ikhsan@gmail.com', 2, 'aktif', 1);
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `tbl_data_siswa` (
   `tempat_lahir` varchar(150) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `jk` enum('l','p') NOT NULL,
-  `telepon` int(12) NOT NULL,
+  `telepon` varchar(12) NOT NULL,
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -167,8 +167,8 @@ CREATE TABLE IF NOT EXISTS `tbl_data_siswa` (
 --
 
 INSERT INTO `tbl_data_siswa` (`nis`, `password`, `nama`, `foto`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `jk`, `telepon`, `email`) VALUES
-(101106, 'e10adc3949ba59abbe56e057f20f883e', 'Deni', '101106.JPG', 'Holis', 'bandung', '2015-05-12', 'l', 123456, 'deni@gmail.com'),
-(101107, 'e10adc3949ba59abbe56e057f20f883e', 'Randy', '101107.jpg', 'Margahayu', 'bandung', '2015-05-12', 'l', 123456, 'randy@gmail.com');
+(101106, 'e10adc3949ba59abbe56e057f20f883e', 'Deni', '101106.JPG', 'Holis', 'bandung', '2015-05-12', 'l', '123456', 'deni@gmail.com'),
+(101107, 'e10adc3949ba59abbe56e057f20f883e', 'Randy', '101107.jpg', 'Margahayu', 'bandung', '2015-05-12', 'l', '123456', 'randy@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -555,7 +555,7 @@ ALTER TABLE `tbl_detail_guru`
 -- Indexes for table `tbl_detail_kelas`
 --
 ALTER TABLE `tbl_detail_kelas`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `kelas_detail1` (`nis`), ADD KEY `kelas_detail2` (`id_kelas`);
 
 --
 -- Indexes for table `tbl_info_berita`
@@ -750,6 +750,13 @@ ADD CONSTRAINT `detail_guru_fk1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_m
 ADD CONSTRAINT `detail_guru_fk2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`);
 
 --
+-- Constraints for table `tbl_detail_kelas`
+--
+ALTER TABLE `tbl_detail_kelas`
+ADD CONSTRAINT `kelas_detail1` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`),
+ADD CONSTRAINT `kelas_detail2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`);
+
+--
 -- Constraints for table `tbl_info_cuitan`
 --
 ALTER TABLE `tbl_info_cuitan`
@@ -804,7 +811,8 @@ ADD CONSTRAINT `pembelajaran_materi_ibfk_2` FOREIGN KEY (`id_mapel`) REFERENCES 
 ALTER TABLE `tbl_pilihkelas`
 ADD CONSTRAINT `pilihkelas_1` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`),
 ADD CONSTRAINT `pilihkelas_2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`),
-ADD CONSTRAINT `pilihkelas_3` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`);
+ADD CONSTRAINT `pilihkelas_3` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`),
+ADD CONSTRAINT `pilihkelas_nis` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`);
 
 --
 -- Constraints for table `tbl_tugas_siswa`
