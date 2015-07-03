@@ -25,7 +25,7 @@
 		    </thead>
 		    <?php
 		    	$i=1;
-		    	$selectKelas = mysql_query("SELECT p.id, s.nama, k.kelas, k.detil_kelas, p.uts, p.uas, p.kuis FROM tbl_pilihkelas p JOIN tbl_data_siswa s ON p.nis=s.nis JOIN tbl_data_kelas k ON p.id_kelas=k.id WHERE p.nip = '$nip' AND p.id_mapel = '$_GET[id_mapel]'");
+		    	$selectKelas = mysql_query("SELECT p.id, s.nama, k.kelas, k.detil_kelas, p.uts, p.uas, p.kuis FROM tbl_pilihkelas p JOIN tbl_data_siswa s ON p.nis=s.nis JOIN tbl_data_kelas k ON p.id_kelas=k.id WHERE p.nip = '$nip' AND p.id_mapel = '$_GET[id_mapel]' GROUP BY p.nis");
 		    	while ($data = mysql_fetch_array($selectKelas)) {
 		    ?>   
 			    <tr>

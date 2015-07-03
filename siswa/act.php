@@ -135,11 +135,22 @@ elseif ($act == 'pilih_kelas') {
 	$mapel = mysql_real_escape_string($_POST['mapel']);
 	$kelas = mysql_real_escape_string($_POST['kelas']);
 	$mapelEx = explode("&", $mapel);
+	$cekKelas = mysql_query("SELECT * FROM tbl_pilihkelas WHERE nis = '$nis' AND id_mapel = '$mapelEx[0]' ");
+	$jml = mysql_num_rows($cekKelas);
+	if ($jml > 0) {
+		echo "	<script>
+			alert('Kelas Sudah dipilih');
+			window.location.href='../frontend/index.php?menu=beranda_siswa&aksi=pilihkelas';
+		</script>";
+	}
+	else
+	{
 	mysql_query("INSERT INTO tbl_pilihkelas (nis, id_kelas, id_mapel, nip) VALUES ('$nis','$kelas','$mapelEx[0]','$guru')");
 	echo "	<script>
 			alert('Kelas Berhasil Ditambah');
 			window.location.href='../frontend/index.php?menu=beranda_siswa&aksi=masukkelas';
 		</script>";
+	}
 }
 
 elseif ($act == 'keluar_kelas') {
