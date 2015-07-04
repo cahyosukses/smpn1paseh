@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Waktu pembuatan: 27. Juni 2015 jam 10:50
+-- Waktu pembuatan: 03. Juli 2015 jam 03:20
 -- Versi Server: 5.5.16
 -- Versi PHP: 5.3.8
 
@@ -50,10 +50,9 @@ CREATE TABLE IF NOT EXISTS `tbl_data_guru` (
 --
 
 INSERT INTO `tbl_data_guru` (`nip`, `password`, `nama`, `foto`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `jk`, `telepon`, `email`, `mapel`, `status`, `id_penambah`) VALUES
-('1', 'e10adc3949ba59abbe56e057f20f883e', 'Tandris', '1.jpg', 'Cimahi', 'bandung', '1992-06-21', 'l', '123456', 'tandrisopiandi@gmail.com', 4, 'aktif', 1),
-('10', 'e10adc3949ba59abbe56e057f20f883e', 'Miraj', '10.JPG', 'Majalaya', 'bandung', '1992-05-13', 'l', '123456', 'rhafkasanjani@gmail.com', 1, 'aktif', 1),
-('1028', 'e10adc3949ba59abbe56e057f20f883e', 'Ikhsan', '1028.JPG', 'Ciparay', 'bandung', '1992-05-11', 'p', '123456', 'ikhsan@gmail.com', 2, 'aktif', 1),
-('11', 'e10adc3949ba59abbe56e057f20f883e', 'Azhari', '11.jpg', 'Cibiru', 'Bandung', '1990-06-09', 'l', '123456', 'azhari@gmail.com', 7, 'aktif', 1);
+('195805091981031006', 'e10adc3949ba59abbe56e057f20f883e', 'Zuhri Umar, S.Pd.', '195805091981031006.jpg', 'Majalaya', 'Bandung', '1976-06-22', 'l', '087822470777', 'zuhriumar@gmail.com', 8, 'aktif', 1),
+('196101111982041001', 'e10adc3949ba59abbe56e057f20f883e', 'Drs. Asep Permana, M.M.Pd.', '196101111982041001.jpg', 'Rancabali', 'Bandung', '1970-06-10', 'l', '087822176717', 'asepermana@yahoo.com', 14, 'aktif', 1),
+('196203161984031005', 'e10adc3949ba59abbe56e057f20f883e', 'Drs. Dadan Heryana', '196203161984031005.jpg', 'Bojong', 'Bandung', '1980-12-17', 'l', '087899753425', 'dadanheryana@gmail.com', 12, 'aktif', 1);
 
 -- --------------------------------------------------------
 
@@ -70,16 +69,16 @@ CREATE TABLE IF NOT EXISTS `tbl_data_kelas` (
   PRIMARY KEY (`id`),
   KEY `kelas_fk` (`nip`),
   KEY `kelas_admin_fk` (`id_penambah`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data untuk tabel `tbl_data_kelas`
 --
 
 INSERT INTO `tbl_data_kelas` (`id`, `kelas`, `detil_kelas`, `nip`, `id_penambah`) VALUES
-(1, 'viii', 'a', '1', 1),
-(3, 'vii', 'a', '10', 1),
-(4, 'ix', 'a', '1028', 1);
+(5, 'ix', 'a', '195805091981031006', 1),
+(7, 'ix', 'b', '196101111982041001', 1),
+(8, 'ix', 'c', '196203161984031005', 1);
 
 -- --------------------------------------------------------
 
@@ -91,19 +90,20 @@ CREATE TABLE IF NOT EXISTS `tbl_data_mapel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mapel` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data untuk tabel `tbl_data_mapel`
 --
 
 INSERT INTO `tbl_data_mapel` (`id`, `mapel`) VALUES
-(1, 'Biologi'),
-(2, 'Kimia'),
-(4, 'Fisika'),
-(5, 'B. Indonesia'),
-(6, 'Penjas'),
-(7, 'Kesenian');
+(8, 'Biologi'),
+(9, 'Fisika'),
+(10, 'Kimia'),
+(12, 'Sejarah'),
+(13, 'B. Indonesia'),
+(14, 'Matematika'),
+(15, 'Penjaskes');
 
 -- --------------------------------------------------------
 
@@ -130,8 +130,10 @@ CREATE TABLE IF NOT EXISTS `tbl_data_siswa` (
 --
 
 INSERT INTO `tbl_data_siswa` (`nis`, `password`, `nama`, `foto`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `jk`, `telepon`, `email`) VALUES
-(101106, 'e10adc3949ba59abbe56e057f20f883e', 'Deni', '101106.JPG', 'Holis', 'bandung', '2015-05-12', 'l', '123456', 'deni@gmail.com'),
-(101107, 'e10adc3949ba59abbe56e057f20f883e', 'Randy', '101107.jpg', 'Margahayu', 'bandung', '2015-05-12', 'l', '123456', 'randy@gmail.com');
+(121307003, 'e10adc3949ba59abbe56e057f20f883e', 'Ikhsan Kamil Fauzi', '121307003.JPG', 'Majalaya', 'Bandung', '2000-11-18', 'l', '087656378290', 'ikhsankamil@gmail.com'),
+(121307006, 'e10adc3949ba59abbe56e057f20f883e', 'Yanuar Emyr', '121307006.jpg', 'Solokan Jeruk', 'Bandung', '2001-11-11', 'l', '089655543467', 'yanuaremyr@gmail.com'),
+(121307024, 'e10adc3949ba59abbe56e057f20f883e', 'Deni Indrayana', '121307024.JPG', 'Ebah', 'Bandung', '2001-02-24', 'l', '087748383722', 'denindra@gmail.com'),
+(121307027, 'e10adc3949ba59abbe56e057f20f883e', 'Andri Irpan', '121307027.jpg', 'Sukamanah', 'Bandung', '2001-07-14', 'l', '089764536728', 'andrirpan@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -148,18 +150,19 @@ CREATE TABLE IF NOT EXISTS `tbl_detail_guru` (
   KEY `detail_guru_fk` (`nip`),
   KEY `detail_guru_fk1` (`id_mapel`),
   KEY `detail_guru_fk2` (`id_kelas`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data untuk tabel `tbl_detail_guru`
 --
 
 INSERT INTO `tbl_detail_guru` (`id_detail`, `nip`, `id_mapel`, `id_kelas`) VALUES
-(3, '10', 5, 4),
-(4, '10', 6, 1),
-(5, '1', 1, 1),
-(6, '10', 2, 3),
-(7, '11', 4, 1);
+(9, '195805091981031006', 8, 5),
+(11, '196101111982041001', 14, 7),
+(12, '196203161984031005', 12, 8),
+(13, '196101111982041001', 10, 7),
+(14, '196101111982041001', 14, 5),
+(15, '195805091981031006', 12, 7);
 
 -- --------------------------------------------------------
 
@@ -174,15 +177,17 @@ CREATE TABLE IF NOT EXISTS `tbl_detail_kelas` (
   PRIMARY KEY (`id`),
   KEY `kelas_detail1` (`nis`),
   KEY `kelas_detail2` (`id_kelas`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data untuk tabel `tbl_detail_kelas`
 --
 
 INSERT INTO `tbl_detail_kelas` (`id`, `nis`, `id_kelas`) VALUES
-(1, 101106, 3),
-(2, 101107, 3);
+(6, 121307003, 5),
+(7, 121307006, 7),
+(8, 121307024, 8),
+(10, 121307027, 7);
 
 -- --------------------------------------------------------
 
@@ -218,15 +223,14 @@ CREATE TABLE IF NOT EXISTS `tbl_info_cuitan` (
   `isi` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cuitan_fk` (`nip`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data untuk tabel `tbl_info_cuitan`
 --
 
 INSERT INTO `tbl_info_cuitan` (`id`, `nip`, `tgl`, `isi`) VALUES
-(6, '10', '2015-06-08 22:54:34', 'miraj'),
-(7, '1028', '2015-06-08 22:57:51', 'ikhsan');
+(8, '196101111982041001', '2015-06-29 06:13:34', 'minggu depan ulangan yah');
 
 -- --------------------------------------------------------
 
@@ -241,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `tbl_info_kritik_saran` (
   `email` varchar(100) NOT NULL,
   `komentar` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data untuk tabel `tbl_info_kritik_saran`
@@ -264,15 +268,14 @@ CREATE TABLE IF NOT EXISTS `tbl_info_pengumuman_admin` (
   `id_penambah` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `pengumuman_fk` (`id_penambah`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data untuk tabel `tbl_info_pengumuman_admin`
 --
 
 INSERT INTO `tbl_info_pengumuman_admin` (`id`, `judul`, `tgl`, `pengumuman`, `id_penambah`) VALUES
-(1, 'Hiburan', '2015-05-26 13:47:32', 'besok bagi rapot ada hiburan', 1),
-(3, 'Libur', '2015-05-28 13:41:36', 'untuk tgl 23 juni libur ', 1);
+(4, 'Info Libur', '2015-06-29 05:51:10', 'Untuk tanggal 14 juli sudah mulai libur, trims.', 1);
 
 -- --------------------------------------------------------
 
@@ -289,15 +292,14 @@ CREATE TABLE IF NOT EXISTS `tbl_info_pengumuman_guru` (
   `pengumuman` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `pengumuman_guru_fk` (`nip`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data untuk tabel `tbl_info_pengumuman_guru`
 --
 
 INSERT INTO `tbl_info_pengumuman_guru` (`id`, `nip`, `id_mapel`, `judul`, `tgl`, `pengumuman`) VALUES
-(8, '1', 0, 'Kuis', '2015-06-08 22:46:45', 'Minggu depan kuis yah, persiapkan '),
-(14, '10', 5, 'ulangan', '2015-06-20 21:36:19', 'b indonesia besok ulangan');
+(15, '196101111982041001', 14, 'ULANGAN', '2015-06-29 06:15:51', 'MINGGU DEPAN ULANGAN, HARAP MENGHAPAL ');
 
 -- --------------------------------------------------------
 
@@ -315,29 +317,14 @@ CREATE TABLE IF NOT EXISTS `tbl_pembelajaran_diskusi` (
   `is_guru` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `diskusi_1` (`id_mapel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data untuk tabel `tbl_pembelajaran_diskusi`
 --
 
 INSERT INTO `tbl_pembelajaran_diskusi` (`id`, `pengirim`, `waktu`, `isi`, `id_mapel`, `nip`, `is_guru`) VALUES
-(10, 1, '2015-06-08 22:49:20', 'tandris', 4, '0', 1),
-(11, 10, '2015-06-08 22:53:59', 'miraj', 1, '0', 1),
-(12, 1028, '2015-06-08 22:58:03', 'ikhsan', 6, '0', 1),
-(13, 101106, '2015-06-08 23:02:13', 'deni', 4, '0', 0),
-(14, 101107, '2015-06-08 23:07:07', 'randi', 1, '0', 0),
-(15, 101106, '2015-06-16 21:56:08', 'tes', 4, '0', 0),
-(16, 101106, '2015-06-16 21:56:36', 'tes2', 4, '0', 0),
-(17, 101106, '2015-06-16 21:56:55', 'tssss', 4, '0', 0),
-(19, 10, '2015-06-20 21:54:46', 'hahaha', 5, '10', 1),
-(20, 10, '2015-06-20 21:55:12', 'penjas', 6, '10', 1),
-(21, 101106, '2015-06-20 21:57:42', 'haha juga', 5, '10', 0),
-(22, 101106, '2015-06-20 21:58:23', 'lol', 5, '10', 0),
-(23, 10, '2015-06-24 04:56:36', 'hmm', 2, '10', 1),
-(24, 101106, '2015-06-27 02:47:34', 'hehe', 5, '10', 0),
-(25, 101106, '2015-06-27 02:47:44', '', 5, '10', 0),
-(26, 1, '2015-06-27 05:10:48', '', 2, '1', 1);
+(1, 2147483647, '2015-06-30 21:16:25', 'mari diskusi', 14, '196101111982041001', 1);
 
 -- --------------------------------------------------------
 
@@ -355,15 +342,14 @@ CREATE TABLE IF NOT EXISTS `tbl_pembelajaran_materi` (
   PRIMARY KEY (`id`),
   KEY `pembelajaran_materi_ibfk_1` (`nip`),
   KEY `pembelajaran_materi_ibfk_2` (`id_mapel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data untuk tabel `tbl_pembelajaran_materi`
 --
 
 INSERT INTO `tbl_pembelajaran_materi` (`id`, `tgl`, `judul`, `nama_file`, `nip`, `id_mapel`) VALUES
-(7, '2015-06-12 15:00:43', 'VII_FISIKA_RELATIVITAS', 'VII_FISIKA_RELATIVITAS.pdf', '1', 4),
-(10, '2015-06-20 06:12:28', 'VIII_PENJAS_RENANG', 'VIII_PENJAS_RENANG.pdf', '10', 6);
+(16, '2015-06-29 06:30:15', 'IX_MATEMATIKA_ALJABAR', 'IX_MATEMATIKA_ALJABAR.docx', '196101111982041001', 14);
 
 -- --------------------------------------------------------
 
@@ -384,19 +370,18 @@ CREATE TABLE IF NOT EXISTS `tbl_pilihkelas` (
   KEY `pilihkelas_1` (`nis`),
   KEY `pilihkelas_2` (`id_kelas`),
   KEY `pilihkelas_3` (`id_mapel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data untuk tabel `tbl_pilihkelas`
 --
 
 INSERT INTO `tbl_pilihkelas` (`id`, `nis`, `id_kelas`, `id_mapel`, `nip`, `uts`, `uas`, `kuis`) VALUES
-(11, 101107, 1, 1, NULL, 50, 70, 88),
-(12, 101107, 4, 4, NULL, 77, 78, 90),
-(20, 101106, 4, 7, '10', 87, 78, 70),
-(26, 101106, 3, 6, '10', 88, 57, 56),
-(27, 101106, 3, 5, '10', 78, 77, 90),
-(28, 101106, 1, 4, '11', NULL, NULL, NULL);
+(30, 121307003, 5, 8, '195805091981031006', 78, 90, 88),
+(31, 121307003, 7, 14, '196101111982041001', 89, 87, 90),
+(34, 121307006, 5, 8, '195805091981031006', 88, 76, 80),
+(35, 121307006, 7, 10, '196101111982041001', 98, 87, 77),
+(37, 121307024, 5, 8, '195805091981031006', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -416,16 +401,16 @@ CREATE TABLE IF NOT EXISTS `tbl_tugas_siswa` (
   PRIMARY KEY (`id`),
   KEY `tugas_siswa` (`nis`),
   KEY `tugas_siswa_fk1` (`id_mapel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data untuk tabel `tbl_tugas_siswa`
 --
 
 INSERT INTO `tbl_tugas_siswa` (`id`, `nis`, `tgl`, `judul`, `nama_file`, `id_mapel`, `nip`, `nilai`) VALUES
-(4, 101107, '2015-06-01 17:23:21', 'VII_PENJAS_2015GANJIL', '101107_VII_PENJAS_2015GANJIL.pdf', 4, '0', 89),
-(5, 101106, '2015-06-06 22:51:17', 'agasga', '101106_agasga.jpg', 6, '10', 80),
-(7, 101106, '2015-06-20 06:36:24', 'VIII_PENJAS_2012GENAP', '101106_VIII_PENJAS_2012GENAP.pdf', 6, '10', 0);
+(1, 121307003, '2015-06-30 21:20:01', 'IX_MATEMATIKA_TUGAS1', '121307003_IX_MATEMATIKA_TUGAS1.docx', 14, '196101111982041001', 0),
+(3, 121307003, '2015-06-30 22:42:13', 'IX_Biologi_TUGAS1', '121307003_IX_Biologi_TUGAS1.docx', 8, '195805091981031006', 0),
+(4, 121307024, '2015-07-03 08:08:40', 'IXC_BIOLOGI_TUGAS1', '121307024_IXC_BIOLOGI_TUGAS1.docx', 8, '195805091981031006', 0);
 
 -- --------------------------------------------------------
 
