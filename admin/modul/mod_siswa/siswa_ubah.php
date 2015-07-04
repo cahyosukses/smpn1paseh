@@ -21,12 +21,12 @@
 			    	<input type='text' name='nama' class='form-control' tabindex="2" placeholder='Nama Siswa' required value="<?php echo $data['nama']; ?>" />
 			    </div>
 			</div>
-			<div class='form-group'>
+			<!-- <div class='form-group'>
 			    <label class="control-label col-lg-4">Alamat</label>
 			    <div class="col-lg-8">
 			    	<textarea name="alamat" rows="6" required  class="form-control" tabindex="3"><?php echo $data['alamat']; ?></textarea>
 			    </div>
-			</div>
+			</div> -->
 	        <div class='form-group'>
 			    <label class="control-label col-lg-4">Tempat Lahir</label>
 			    <div class="col-lg-8">
@@ -61,10 +61,16 @@
 				  </div>
 				</div>
 			</div>
-
+			<div class="form-group">
+				<label class="control-label col-lg-4"></label>
+			    <div class="col-lg-8">
+					<button type='submit' name="btnTambah" class='btn btn-success' tabindex="18">Simpan</button>
+					<a type='button' href="javascript:history.back()" class='btn btn-danger' tabindex="19">Kembali</a>
+				</div>
+			</div>
 		</div> <!-- END COL 2 -->
 		<div class="col-lg-6">
-			<div class="form-group">
+			<!-- <div class="form-group">
 	            <label class="control-label col-lg-4">Foto</label><br/>
 			    <div class="col-lg-8">
 	            	<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -81,9 +87,9 @@
 		              </div>
 	            	</div>
 	            </div>
-	        </div>
+	        </div> -->
 	        
-			<div class='form-group'>
+			<!-- <div class='form-group'>
 			    <label class="control-label col-lg-4">Telepon</label>
 			    <div class="col-lg-8">
 			    	<input type="text" name='telepon' class='form-control' placeholder='No Telepon' tabindex="8" maxlength="12" required value="<?php echo $data['telepon']; ?>"/>
@@ -95,17 +101,8 @@
 			    <div class="col-lg-8">
 			    	<input type='email' name='email' class='form-control' required placeholder='Email' tabindex="11" value="<?php echo $data['email']; ?>"/>
 				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-4"></label>
-			    <div class="col-lg-8">
-					<button type='submit' name="btnTambah" class='btn btn-success' tabindex="18">Simpan</button>
-					<a type='button' href="javascript:history.back()" class='btn btn-danger' tabindex="19">Kembali</a>
-				</div>
-			</div>
+			</div> -->
 		</div> <!-- END COL 2 -->
-	    <hr />
 	</div> <!-- END ROW -->
 <form>
 

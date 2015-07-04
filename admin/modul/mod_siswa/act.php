@@ -8,37 +8,35 @@ if ($act == "tambah") {
 	$nis = mysql_real_escape_string($_POST['nis']);
 	$password = md5("123456");
 	$nama = mysql_real_escape_string($_POST['nama']);
-	$alamat = mysql_real_escape_string($_POST['alamat']);
+	// $alamat = mysql_real_escape_string($_POST['alamat']);
 	$tempat_lahir = mysql_real_escape_string($_POST['tempat_lahir']);
 	$tanggal_lahir = mysql_real_escape_string($_POST['tanggal_lahir']);
 	$jk = mysql_real_escape_string($_POST['jk']);
-	$telepon = mysql_real_escape_string($_POST['telepon']);
-	$email = mysql_real_escape_string($_POST['email']);
-	$foto = $_FILES['foto']['name'];
-	$ext = pathinfo($foto, PATHINFO_EXTENSION);
-	$newfoto= $nis.".".$ext;
-	$move = move_uploaded_file($_FILES['foto']['tmp_name'], '../../../directory_files/foto_siswa/'.$newfoto);
+	// $telepon = mysql_real_escape_string($_POST['telepon']);
+	// $email = mysql_real_escape_string($_POST['email']);
+	// $foto = $_FILES['foto']['name'];
+	// $ext = pathinfo($foto, PATHINFO_EXTENSION);
+	// $newfoto= $nis.".".$ext;
+	// $move = move_uploaded_file($_FILES['foto']['tmp_name'], '../../../directory_files/foto_siswa/'.$newfoto);
 
 	mysql_query("INSERT INTO tbl_data_siswa (nis, 
 											password, 
 											nama, 
-											foto, 
-											alamat, 
+											-- foto, 
+											-- alamat, 
 											tempat_lahir, 
 											tanggal_lahir, 
-											jk, 
-											telepon, 
-											email) 
+											jk 
+											-- telepon, 
+											-- email
+											) 
 	 						  VALUES ('$nis',
 	 						  			'$password',
 	 						  			'$nama',
-	 						  			'$newfoto',
-	 						  			'$alamat',
 	 						  			'$tempat_lahir',
 	 						  			'$tanggal_lahir',
-	 						  			'$jk',
-	 						  			'$telepon',
-	 						  			'$email') ");
+	 						  			'$jk'
+	 						  			) ");
 	echo "	<script>
 				alert('Data $nama Berhasil Ditambah');
 				window.location.href='../../main.php?modul=siswa';
@@ -47,50 +45,46 @@ if ($act == "tambah") {
 elseif ($act == "ubah") {
 	$nis = mysql_real_escape_string($_POST['nis']);
 	$nama = mysql_real_escape_string($_POST['nama']);
-	$alamat = mysql_real_escape_string($_POST['alamat']);
+	// $alamat = mysql_real_escape_string($_POST['alamat']);
 	$tempat_lahir = mysql_real_escape_string($_POST['tempat_lahir']);
 	$tanggal_lahir = mysql_real_escape_string($_POST['tanggal_lahir']);
 	$jk = mysql_real_escape_string($_POST['jk']);
-	$telepon = mysql_real_escape_string($_POST['telepon']);
-	$email = mysql_real_escape_string($_POST['email']);
-	$foto = $_FILES['foto']['name'];
-	$ext = pathinfo($foto, PATHINFO_EXTENSION);
-	$newfoto= $nis.".".$ext;
-	$oldfoto = mysql_real_escape_string($_POST['oldfoto']);
-	if (empty($foto)) {
+	// $telepon = mysql_real_escape_string($_POST['telepon']);
+	// $email = mysql_real_escape_string($_POST['email']);
+	// $foto = $_FILES['foto']['name'];
+	// $ext = pathinfo($foto, PATHINFO_EXTENSION);
+	// $newfoto= $nis.".".$ext;
+	// $oldfoto = mysql_real_escape_string($_POST['oldfoto']);
+	// if (empty($foto)) {
 		mysql_query("UPDATE tbl_data_siswa SET nama = '$nama',
-												alamat = '$alamat',
 												tempat_lahir = '$tempat_lahir',
 												tanggal_lahir = '$tanggal_lahir',
-												jk = '$jk',
-												telepon = '$telepon',
-												email = '$email',
-												foto = '$oldfoto'
+												jk = '$jk'
 					WHERE nis = '$nis'
 				");	
 		echo "	<script>
 				alert('Data $nama Berhasil Diubah');
 				window.location.href='../../main.php?modul=siswa';
 			</script>";
-	}
-	else
-	{
-		$move = move_uploaded_file($_FILES['foto']['tmp_name'], '../../../directory_files/foto_siswa/'.$newfoto);
-		mysql_query("UPDATE tbl_data_siswa SET nama = '$nama',
-												alamat = '$alamat',
-												tempat_lahir = '$tempat_lahir',
-												tanggal_lahir = '$tanggal_lahir',
-												jk = '$jk',
-												telepon = '$telepon',
-												email = '$email',
-												foto = '$newfoto'
-					WHERE nis = '$nis'
-				");
-		echo "	<script>
-				alert('Data $nama Berhasil Diubah');
-				window.location.href='../../main.php?modul=siswa';
-			</script>";
-	}
+	// }
+	// else
+	// {
+	// 	$move = move_uploaded_file($_FILES['foto']['tmp_name'], '../../../directory_files/foto_siswa/'.$newfoto);
+	// 	mysql_query("UPDATE tbl_data_siswa SET nama = '$nama',
+	// 											alamat = '$alamat',
+	// 											tempat_lahir = '$tempat_lahir',
+	// 											tanggal_lahir = '$tanggal_lahir',
+	// 											jk = '$jk',
+	// 											telepon = '$telepon',
+	// 											email = '$email',
+	// 											foto = '$newfoto'
+	// 				WHERE nis = '$nis'
+	// 			");
+	// 	echo "	<script>
+	// 			alert('Data $nama Berhasil Diubah');
+	// 			window.location.href='../../main.php?modul=siswa';
+	// 		</script>";
+	// }
 	
 }
 elseif ($act == "hapus") {

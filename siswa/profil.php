@@ -20,7 +20,7 @@
 				</div>
 				<div class="field">
 					<label for="contact-message">Nama:</label>
-					<input type="text" name="nama" value="<?php echo $data['nama']; ?>"/>
+					<input type="text" name="nama" value="<?php echo $data['nama']; ?>" readonly="readonly"/>
 				</div>
 				<div class="field">
 					<label for="contact-message">Email:</label>

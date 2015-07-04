@@ -5,6 +5,13 @@
 	<div class="row">
 		<div class="col-lg-6">
 			<div class='form-group'>
+			    <label class="control-label col-lg-4"></label>
+			    <div class="col-lg-8">
+			    	<a href="../assets/function/downloadTemplate.php?nama_file=template.xlsx" class="btn btn-primary" title="" style="color:555"><i class="fa fa-download"></i> Download Template</a>
+				</div>
+			</div>
+			<hr/>
+			<div class='form-group'>
 			    <label class="control-label col-lg-4">Cari File</label>
 			    <div class="col-lg-8">
 			    	<input type='file' name='import' class='form-control' required placeholder='Email' tabindex="11"/>
