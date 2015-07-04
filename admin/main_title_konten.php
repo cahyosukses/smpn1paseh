@@ -18,6 +18,9 @@
 	elseif ($modul == 'siswa_ubah') {
 		echo "<span>Ubah Data Siswa</span>";
 	}
+	elseif ($modul == 'siswa_import') {
+		echo "<span>Import Data Siswa</span>";
+	}
 	// BERITA
 	elseif ($modul == 'berita') {
 		echo "<span>Data Berita</span>";

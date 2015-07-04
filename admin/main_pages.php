@@ -18,6 +18,9 @@
 	elseif ($modul == 'siswa_ubah') {
 		include "modul/mod_siswa/siswa_ubah.php";
 	}
+	elseif ($modul == 'siswa_import') {
+		include "modul/mod_siswa/siswa_import.php";
+	}
 	// BERITA
 	elseif ($modul == 'berita') {
 		include "modul/mod_berita/berita.php";
