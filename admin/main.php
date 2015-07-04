@@ -57,8 +57,8 @@
 	                              	<!-- <li><a href="?modul=walikelas">Data Walikelas</a></li> -->
 	                             	 <li><a href="?modul=kelas">Data Kelas</a></li>
 	                              	<li><a href="?modul=matpel">Data Mata Pelajaran</a></li>
-	                              	<li><a href="?modul=hari">Data Hari</a></li>
-	                              	<li><a href="?modul=jam">Data Jam</a></li>
+	                              	<!-- <li><a href="?modul=hari">Data Hari</a></li>
+	                              	<li><a href="?modul=jam">Data Jam</a></li> -->
 	                          	</ul>
 	                      	</li>
 	                       	<li>

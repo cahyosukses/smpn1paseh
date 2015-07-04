@@ -55,6 +55,9 @@
 	elseif ($modul == 'guru_ubah') {
 		echo "<span>Ubah Data Guru</span>";
 	}
+	elseif ($modul == 'guru_import') {
+		echo "<span>Import Data Guru</span>";
+	}
 	// WALIKELAS
 	elseif ($modul == 'walikelas') {
 		echo "<span>Data Wali Kelas</span>";

@@ -55,6 +55,9 @@
 	elseif ($modul == 'guru_ubah') {
 		include "modul/mod_guru/guru_ubah.php";
 	}
+	elseif ($modul == 'guru_import') {
+		include "modul/mod_guru/guru_import.php";
+	}
 	// WALIKELAS
 	elseif ($modul == 'walikelas') {
 		include "modul/mod_walikelas/walikelas.php";

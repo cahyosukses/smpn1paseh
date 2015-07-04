@@ -10,7 +10,7 @@
 
 	<div class="form-group pull-right">
 		<a href='?modul=siswa_import' class='btn btn-primary btn-sm margin-right'>
-			<i class='fa fa-file-excel-o'></i>&nbsp;Import dari Excell
+			<i class='fa fa-file-excel-o'></i>&nbsp;Import dari Excel
 		</a>
 		<a href='?modul=siswa_tambah' class='btn btn-success btn-sm margin-right'>
 			<i class='fa fa-plus'></i>&nbsp;Tambah

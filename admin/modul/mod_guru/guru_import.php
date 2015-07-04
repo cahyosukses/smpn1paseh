@@ -7,7 +7,7 @@
 			<div class='form-group'>
 			    <label class="control-label col-lg-4"></label>
 			    <div class="col-lg-8">
-			    	<a href="../assets/function/downloadTemplate.php?nama_file=template_siswa.xlsx" class="btn btn-primary" title="" style="color:555"><i class="fa fa-download"></i> Download Template</a>
+			    	<a href="../assets/function/downloadTemplate.php?nama_file=template_guru.xlsx" class="btn btn-primary" title="" style="color:555"><i class="fa fa-download"></i> Download Template</a>
 				</div>
 			</div>
 			<hr/>

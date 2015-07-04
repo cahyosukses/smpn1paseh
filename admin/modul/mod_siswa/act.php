@@ -22,7 +22,7 @@ if ($act == "tambah") {
 	mysql_query("INSERT INTO tbl_data_siswa (nis, 
 											password, 
 											nama, 
-											-- foto, 
+											foto, 
 											-- alamat, 
 											tempat_lahir, 
 											tanggal_lahir, 
@@ -33,6 +33,7 @@ if ($act == "tambah") {
 	 						  VALUES ('$nis',
 	 						  			'$password',
 	 						  			'$nama',
+	 						  			'dummy.jpg',
 	 						  			'$tempat_lahir',
 	 						  			'$tanggal_lahir',
 	 						  			'$jk'

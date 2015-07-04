@@ -9,6 +9,9 @@
     </div> 
 
 	<div class="form-group pull-right">
+		<a href='?modul=guru_import' class='btn btn-primary btn-sm margin-right'>
+			<i class='fa fa-file-excel-o'></i>&nbsp;Import dari Excel
+		</a>
 		<a href='?modul=guru_tambah' class='btn btn-success btn-sm margin-right'>
 			<i class='fa fa-plus'></i>&nbsp;Tambah
 		</a>
