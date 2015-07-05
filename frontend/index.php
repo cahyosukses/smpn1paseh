@@ -530,6 +530,50 @@
 		});	
 		} );		
 	</script>
+	<script type="text/javascript">
+
+    function checkUpload(size)
+    {
+        if(size>25)
+        {
+         var n = size.toFixed(2);
+            alert('File ini berukuran: ' + n + "MB, Tolong Upload File yang lebih kecil (20MB atau kurang).");
+            document.getElementById("btn").style.display='none';
+
+        }
+        else
+        {
+            //alert('File size is OK');
+            jQuery(function($) {
+            $('#btn').show();
+            } );
+        }
+    }
+    jQuery(function($) {
+	    $('#file').bind('change', function() {
+	    var fileSize = this.files[0].size/1024/1024;
+	        checkUpload(fileSize);
+	    });
+    } );
+    function check_file(){
+        str=document.getElementById('file').value.toUpperCase();
+        suffix=".PDF";
+        suffix2=".DOC";
+        suffix3=".DOCX";
+        suffix4=".XLS";
+        suffix5=".XLSX";
+        suffix6=".PPT";
+        suffix8=".PPTX";
+        suffix9=".JPG";
+        suffix10=".PNG";
+        suffix11=".JPEG";
+        if(str.indexOf(suffix, str.length - suffix.length) == -1 || str.indexOf(suffix2, str.length - suffix2.length) == -1 || str.indexOf(suffix3, str.length - suffix3.length) == -1 || str.indexOf(suffix4, str.length - suffix4.length) == -1 || str.indexOf(suffix5, str.length - suffix5.length) == -1 || str.indexOf(suffix6, str.length - suffix6.length) == -1 || str.indexOf(suffix7, str.length - suffix7.length) == -1 || str.indexOf(suffix8, str.length - suffix8.length) == -1 || str.indexOf(suffix9, str.length - suffix9.length) == -1 || str.indexOf(suffix10, str.length - suffix10.length) == -1 || str.indexOf(suffix11, str.length - suffix11.length) == -1 )
+    	{
+        	alert('Format File tidak di izinkan,\n file yang di izinkan: *.jpg,*.jpeg, *.pdf, *.doc, *.docx, *.xls, *.xlsx, *.ppt, *.pptx, *.png');
+            document.getElementById('file').value='';
+        }
+    }
+</script>
 	<script type="text/javascript" src="../assets/lib/jasny/js/jasny-bootstrap.min.js"></script>
 </body>
 </html>

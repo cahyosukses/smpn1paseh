@@ -15,7 +15,7 @@
 					<thead>
 						<tr>
 							<th width="40%">Judul Materi</th>
-							<td width="60%" align="center"><b style="color:red">**</b> File tidak boleh lebih dari 20mb</td>
+							<td width="60%" align="center"><b style="color:red">**</b> File tidak boleh lebih dari 20mb<br/><b style="color:red">**</b>file yang di izinkan: *.jpg,*.jpeg, *.pdf, *.doc, *.docx, *.xls, *.xlsx, *.ppt, *.pptx, *.png</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -43,8 +43,8 @@
 								</form>
 							</td>
 							<td align="center">
-								<input type="file" name="materi"/><br/><br/>
-								<input type="submit" name="btnKirim" class="btn" value="Kirim">
+								<input type="file" name="materi" id="file" onchange="check_file()" /><br/><br/>
+								<input type="submit" name="btnKirim" class="btn" id="btn" value="Kirim">
 							</td>
 						</tr>
 					</tbody>

@@ -227,3 +227,106 @@ elseif ($act == 'ubah_nilai') {
 			window.location.href='../frontend/index.php?menu=beranda_guru&aksi=nilai_sum&id_mapel=$id_mapel';
 		</script>";
 }
+
+// DOWNLOAD nilai Matpel
+elseif ($act == 'download_tugas') {
+	$id_mapel = $_GET['id_mapel'];
+	$nip = $_GET['nip'];
+	/* creates a compressed zip file */
+	function create_zip($files = array(),$destination = '',$overwrite = false) {
+		//if the zip file already exists and overwrite is false, return false
+		if(file_exists($destination) && !$overwrite) { return false; }
+		//vars
+		$valid_files = array();
+		//if files were passed in...
+		if(is_array($files)) {
+			//cycle through each file
+			foreach($files as $file) {
+				//make sure the file exists
+				if(file_exists($file)) {
+					$valid_files[] = $file;
+				}
+			}
+		}
+		//if we have good files...
+		if(count($valid_files)) {
+			//create the archive
+			$zip = new ZipArchive();
+			if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {
+				return false;
+			}
+			//add the files
+			foreach($valid_files as $file) {
+				$zip->addFile($file,$file);
+			}
+			//debug
+			//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
+			
+			//close the zip -- done!
+			$zip->close();
+			
+			//check to make sure the file exists
+			return file_exists($destination);
+		}
+		else
+		{
+			return false;
+		}
+	}
+	$selectTugas = mysql_query("SELECT * FROM tbl_tugas_siswa t JOIN tbl_data_mapel m ON t.id_mapel = m.id WHERE t.id_mapel = '$id_mapel' AND t.nip = '$nip'");
+	$files_to_zip = array();
+	$cekTugas = mysql_num_rows($selectTugas);
+	if ($cekTugas > 0) {
+		while ($data = mysql_fetch_array($selectTugas)) {
+			$files_to_zip[] = "../directory_files/tugas/".$data['nama_file'];
+			$nama = "Tugas_".$data['mapel'];
+		}
+		//if true, good; if false, zip creation failed
+		$result = create_zip($files_to_zip,'../directory_files/tugas/'.$nama.".zip");
+
+		// DOWNLOAD
+		ignore_user_abort(true);
+	    set_time_limit(0); // disable the time limit for this script
+
+	    $path = "../directory_files/tugas/"; // change the path to fit your websites document structure
+	    $dl_file = preg_replace("([^\w\s\d\-_~,;:\[\]\(\].]|[\.]{2,})", '', $nama.".zip"); // simple file name validation
+	    $dl_file = filter_var($dl_file, FILTER_SANITIZE_URL); // Remove (more) invalid characters
+	    $fullPath = $path.$dl_file;
+
+	    if ($fd = fopen ($fullPath, "r")) {
+	        $fsize = filesize($fullPath);
+	        $path_parts = pathinfo($fullPath);
+	        $ext = strtolower($path_parts["extension"]);
+	        switch ($ext) {
+	            case "pdf":
+	            header("Content-type: application/pdf");
+	            header("Content-Disposition: attachment; filename=\"".$path_parts["basename"]."\""); // use 'attachment' to force a file download
+	            break;
+	            // add more headers for other content types here
+	            default;
+	            header("Content-type: application/octet-stream");
+	            header("Content-Disposition: filename=\"".$path_parts["basename"]."\"");
+	            break;
+	        }
+	        header("Content-length: $fsize");
+	        header("Cache-control: private"); //use this to open files directly
+	        while(!feof($fd)) {
+	            $buffer = fread($fd, 2048);
+	            echo $buffer;
+	        }
+	    }
+	    fclose ($fd);
+	    @unlink('../directory_files/tugas/'.$nama.".zip");
+	    echo "	<script>
+				window.location.href='../frontend/index.php?menu=beranda_guru&aksi=pilih_kelas_tugas';
+			</script>";
+	}
+	else
+	{
+		echo "	<script>
+			alert('Tidak Ada Tugas yg dapat didownload');
+			window.location.href='../frontend/index.php?menu=beranda_guru&aksi=pilih_kelas_tugas';
+		</script>";
+	}
+	
+}

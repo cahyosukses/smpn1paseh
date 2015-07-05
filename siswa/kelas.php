@@ -72,7 +72,7 @@
 								<thead>
 									<tr>
 										<th width="40%">Nama File</th>
-										<th width="60%" align="center"><b style="color:red">**</b> File tidak boleh lebih dari 20mb</th>
+										<th width="60%" align="center"><b style="color:red">**</b> File tidak boleh lebih dari 20mb <br/><b style="color:red">**</b>file yang di izinkan: *.jpg,*.jpeg, *.pdf, *.doc, *.docx, *.xls, *.xlsx, *.ppt, *.pptx, *.png</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -90,8 +90,8 @@
 												
 											</td>
 											<td align="center">
-												<input type="file" name="tugas"/><br/><br/>
-												<input type="submit" name="btnKirim" class="btn" value="Kirim">
+												<input type="file" name="tugas" id="file" onchange="check_file()"/><br/><br/>
+												<input type="submit" name="btnKirim" class="btn" id="btn" value="Kirim">
 											</td>
 										</tr>
 									</form>

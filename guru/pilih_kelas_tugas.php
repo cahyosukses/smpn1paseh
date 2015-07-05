@@ -31,6 +31,7 @@
 				        <td><?php echo $data['mapel']; ?></td>
 				        <td align="center">
 					        <a href="?menu=beranda_guru&amp;aksi=tugas&amp;id_mapel=<?php echo $data['id_mapel'] ?>" class="btn">Masuk</a>
+					        <a href="../guru/act.php?act=download_tugas&amp;id_mapel=<?php echo $data['id_mapel'] ?>&amp;nip=<?php echo $nip ?>" class="btn"><i class="icon-download"></i> Download Tugas</a>
 			        	</td>
 				    </tr>
 		    <?php
