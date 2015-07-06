@@ -116,7 +116,7 @@ elseif ($act == 'kirim_tugas') {
 	mysql_query("INSERT INTO tbl_tugas_siswa (nis,tgl,judul,nama_file,id_mapel,nip) VALUES ('$nis','$date','$judul','$nama_file','$mapel','$nip')");
 	echo "	<script>
 			alert('Tugas berhasil di kirim');
-			window.location.href='../frontend/index.php?menu=beranda_siswa&aksi=kelas&id=$mapel';
+			window.location.href='../frontend/index.php?menu=beranda_siswa&aksi=kelas&id=$mapel&nip=$nip';
 		</script>";
 }
 elseif ($act == 'hapus_tugas') {
