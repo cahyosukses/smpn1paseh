@@ -1,5 +1,5 @@
 <?php
-
+ 
 	$modul='';
 	if (isset($_GET['modul'])) {
 		$modul = $_GET['modul'];
@@ -87,39 +87,6 @@
 	}
 	elseif ($modul == 'matpel_ubah') {
 		include "modul/mod_matpel/matpel_ubah.php";
-	}
-	// HARI
-	elseif ($modul == 'hari') {
-		include "modul/mod_hari/hari.php";
-	}
-	elseif ($modul == 'hari_tambah') {
-		include "modul/mod_hari/hari_tambah.php";
-	}
-	elseif ($modul == 'hari_ubah') {
-		include "modul/mod_hari/hari_ubah.php";
-	}
-	// JAM
-	elseif ($modul == 'jam') {
-		include "modul/mod_jam/jam.php";
-	}
-	elseif ($modul == 'jam_tambah') {
-		include "modul/mod_jam/jam_tambah.php";
-	}
-	elseif ($modul == 'jam_ubah') {
-		include "modul/mod_jam/jam_ubah.php";
-	}
-	elseif ($modul == 'informasi') {
-		include "modul/mod_informasi/informasi.php";
-	}
-	// Penjadwalan
-	elseif ($modul == 'jadwal') {
-		include "modul/mod_jadwal/jadwal.php";
-	}
-	elseif ($modul == 'jadwal_tambah') {
-		include "modul/mod_jadwal/jadwal_tambah.php";
-	}
-	elseif ($modul == 'jadwal_ubah') {
-		include "modul/mod_jadwal/jadwal_ubah.php";
 	}
 	// Detail Guru
 	elseif ($modul == 'detail_guru') {

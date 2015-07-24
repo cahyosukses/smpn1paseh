@@ -1,7 +1,7 @@
 <?php
 	if(isset($_SESSION['login'])){
 ?>
-<form id="defaultForm" class='form-horizontal' method='post' action='modul/mod_siswa/act.php?act=import' id='frm' enctype='multipart/form-data' autocomplete='off' >
+<form id="defaultForm" class='form-horizontal' method='post' action='modul/mod_guru/act.php?act=import' id='frm' enctype='multipart/form-data' autocomplete='off' >
 	<div class="row">
 		<div class="col-lg-6">
 			<div class='form-group'>

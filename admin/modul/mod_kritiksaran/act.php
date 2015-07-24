@@ -18,7 +18,7 @@ if ($act == "hapus") {
 	mysql_query("DELETE FROM tbl_info_kritik_saran WHERE id='$id' ");
 	echo "
 		<script>
-			window.location.href='../../main.php?modul=hari';
+			window.location.href='../../main.php?modul=kritiksaran';
 		</script>
 	";
 	}
@@ -28,7 +28,7 @@ else
 	echo "
 		<script>
 			alert('Ada Kesalahan');
-			window.location.href='../../main.php?modul=siswa';
+			window.location.href='../../main.php?modul=kritiksaran';
 		</script>
 	";
 }

@@ -43,6 +43,16 @@
 				        <td><?php echo $dataTugas['judul']; ?></td>
 				        <td><?php echo $dataTugas['nilai']; ?></td>
 				        <td align="center">
+				        	<?php
+					        	$namaFile = $dataTugas['nama_file'];
+					        	$arNamaFile = explode(".", $namaFile);
+					        	$ext = $arNamaFile[1];
+					        	if ($ext == "mp4") {
+					        		?>
+					        		<a href='javascript:;'  onClick="window.open('../directory_files/tugas/<?php echo $namaFile ?>','scrollwindow','top=200,left=300,width=800,height=500')" title='download'>Lihat</a>
+					        		<?php
+					        	}
+					        ?>
 				        	<a href="../assets/function/downloadTugas.php?nama_file=<?php echo $dataTugas['nama_file'] ?>" title="download"><i class="icon-download icon-2x"></i></a>
 			        	</td>
 			        	<form method="post" action="../guru/act.php?act=nilai_tugas" id="contact-form" class="contact-form" enctype='multipart/form-data'>

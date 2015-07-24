@@ -15,7 +15,7 @@
 		     <tr>
 		        <th>#</th>        
 		        <th>Nama</th>
-		        <th>Kelas</th>
+		        <!--th>Kelas</th-->
 		        <th>UTS</th>
 		        <th>UAS</th>
 		        <th>Kuis</th>
@@ -31,7 +31,7 @@
 			    <tr>
 			        <td><?php echo $i; ?></td>        
         			<td><?php echo $data['nama']; ?></td>
-        			<td><?php echo strtoupper($data['kelas'].$data['detil_kelas']); ?></td>
+        			<!--td><?php echo strtoupper($data['kelas'].$data['detil_kelas']); ?></td-->
         			<form method="post" action="../guru/act.php?act=ubah_nilai&amp;id=<?php echo $data['id'] ?>&amp;id_mapel=<?php echo $_GET['id_mapel'] ?>" id="contact-form" class="contact-form" enctype='multipart/form-data'>
 	        			<td><input type="text" value="<?php echo $data['uts']; ?>" name="uts" style="width:50px" maxlength="2" data-mask="99"></td>
 	        			<td><input type="text" value="<?php echo $data['uas']; ?>" name="uas" style="width:50px" maxlength="2" data-mask="99"></td>

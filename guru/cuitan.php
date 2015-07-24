@@ -4,7 +4,7 @@
 <h2>Cuitan Guru</h2>
 <div class="grid_8 well">
 	<div class="clearfix">
-		<h3>Buat Pengumuman</h3>
+		<h3>Buat Cuitan</h3>
 		<div class="hr-edited hr-dashed"></div>
 		<div class="grid_7">
 			<!-- BEGIN CONTACT FORM -->
@@ -12,7 +12,7 @@
 				<div class="field">
 					<label for="contact-message">Pesan :</label>
 					<input type="hidden" name="nip" value="<?php echo $_SESSION['nip']; ?>">
-					<textarea name="pesan" id="comments" cols="30" rows="2"></textarea>
+					<textarea name="pesan" id="comments" cols="30" rows="2" required></textarea>
 				</div>
 				<div class="button-wrapper">
 					<input type="submit" name="submit" id="submit" value="Kirim">

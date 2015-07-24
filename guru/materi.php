@@ -1,4 +1,4 @@
-<?php
+  <?php
 	if(isset($_SESSION['login'])){
 	include_once("../koneksi.php");
 	koneksi();
@@ -15,7 +15,7 @@
 					<thead>
 						<tr>
 							<th width="40%">Judul Materi</th>
-							<td width="60%" align="center"><b style="color:red">**</b> File tidak boleh lebih dari 20mb<br/><b style="color:red">**</b>file yang di izinkan: *.jpg,*.jpeg, *.pdf, *.doc, *.docx, *.xls, *.xlsx, *.ppt, *.pptx, *.png</td>
+							<td width="60%" align="center"><b style="color:red">**</b> File tidak boleh lebih dari 20mb</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -23,7 +23,7 @@
 							<td>
 								<form>
 									<input type="hidden" name="nip" value="<?php echo $_SESSION['nip']; ?>">
-									<input type="text" name="judul">
+									<input type="text" name="judul" required>
 									<!-- <div class="field">
 										<label for="contact-message">Mata Pelajaran:</label>
 										<select name="mapel" id="mapel">
@@ -43,8 +43,8 @@
 								</form>
 							</td>
 							<td align="center">
-								<input type="file" name="materi" id="file" onchange="check_file()" /><br/><br/>
-								<input type="submit" name="btnKirim" class="btn" id="btn" value="Kirim">
+								<input type="file" name="materi" required><br/><br/>
+								<input type="submit" name="btnKirim" class="btn" value="Kirim">
 							</td>
 						</tr>
 					</tbody>
@@ -77,6 +77,16 @@
 					        <td><?php echo $data['tgl']; ?></td>
 					        <td><?php echo $data['mapel']; ?></td>
 					        <td>
+					        	<?php
+						        	$namaFile = $data['nama_file'];
+						        	$arNamaFile = explode(".", $namaFile);
+						        	$ext = $arNamaFile[1];
+						        	if ($ext == "mp4") {
+						        		?>
+						        		<a href='javascript:;'  onClick="window.open('../directory_files/materi/<?php echo $namaFile ?>','scrollwindow','top=200,left=300,width=800,height=500')" title='download'>Lihat</a>
+						        		<?php
+						        	}
+						        ?>
 					        	<a href="../assets/function/downloadMateri.php?nama_file=<?php echo $data['nama_file'] ?>" title="download"><i class="icon-download icon-2x"></i></a>
 			        			<a href="../guru/act.php?act=hapus_materi&amp;id=<?php echo $data['id']; ?>&amp;id_mapel=<?php echo $id_mapel; ?>" style="color:red;" onClick="return confirm('Anda yakin ingin menghapus materi ini ?')" title="delete"><i class="icon-trash icon-2x"></i></a>
 		        			</td>

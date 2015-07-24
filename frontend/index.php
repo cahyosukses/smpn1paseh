@@ -165,7 +165,7 @@
 										<!-- THE FIRST SLIDE -->
 										<li data-transition="fade" data-slotamount="10" data-masterspeed="300" data-slideindex="back">
 											<!-- THE MAIN IMAGE IN THE SLIDE -->
-											<img src="images/samples/slide3.jpg">
+											<img src="images/samples/pimpin.jpg">
 		
 											<!-- THE CAPTIONS OF THE FIRST SLIDE -->
 											<div class="tp-caption sfl original"
@@ -176,7 +176,7 @@
 												data-captionhidden="on"
 												data-endeasing="easeOutExpo"
 												data-easing="easeOutExpo">
-												Create Your Own
+												
 											</div>
 											
 											<div class="tp-caption sfr original_high"
@@ -187,7 +187,7 @@
 												data-captionhidden="on"
 												data-endeasing="easeOutExpo"
 												data-easing="easeOutExpo">
-												Personality!
+												
 											</div>
 											
 										</li>
@@ -197,7 +197,7 @@
 										<li data-transition="fade" data-slotamount="10" data-masterspeed="300" data-slideindex="back">
 										
 											<!-- THE MAIN IMAGE IN THE SLIDE -->
-											<img src="images/slide-light.jpg">
+											<img src="images/samples/uprsiswa.jpg">
 		
 											<!-- THE CAPTIONS OF THE SECOND SLIDE -->
 											<div class="tp-caption sfl original"
@@ -208,7 +208,7 @@
 												data-captionhidden="on"
 												data-endeasing="easeOutExpo"
 												data-easing="easeOutExpo">
-												Our team is
+												
 											</div>
 											
 											<div class="tp-caption sfr original_high"
@@ -219,7 +219,7 @@
 												data-captionhidden="on"
 												data-endeasing="easeOutExpo"
 												data-easing="easeOutExpo">
-												Professional
+											
 											</div>
 
 										<div class="caption randomrotate"
@@ -227,28 +227,28 @@
 											 data-y="35"
 											 data-speed="600"
 											 data-start="1200"
-											 data-easing="easeOutExpo"  ><img src="images/samples/img140x140.jpg" alt="Image 3"></div>
+											 data-easing="easeOutExpo"  ><img src="images/samples/ks.jpg" alt="Image 3"></div>
 
 										<div class="caption randomrotate"
 											 data-x="530"
 											 data-y="35"
 											 data-speed="600"
 											 data-start="1300"
-											 data-easing="easeOutExpo"  ><img src="images/samples/img140x140.jpg" alt="Image 4"></div>
+											 data-easing="easeOutExpo"  ><img src="images/samples/pimpin1.jpg" alt="Image 4"></div>
 
 										<div class="caption randomrotate"
 											 data-x="680"
 											 data-y="185"
 											 data-speed="300"
 											 data-start="1400"
-											 data-easing="easeOutExpo"  ><img src="images/samples/img140x140.jpg" alt="Image 5"></div>
+											 data-easing="easeOutExpo"  ><img src="images/samples/duel.jpg" alt="Image 5"></div>
 
 										<div class="caption randomrotate"
 											 data-x="530"
 											 data-y="185"
 											 data-speed="600"
 											 data-start="1500"
-											 data-easing="easeOutExpo"  ><img src="images/samples/img140x140.jpg" alt="Image 6"></div>
+											 data-easing="easeOutExpo"  ><img src="images/samples/dkk3.jpg" alt="Image 6"></div>
 										
 											
 										</li>
@@ -256,7 +256,7 @@
 										<!-- THE THIRD SLIDE -->
 										<li data-transition="fade" data-slotamount="10" data-masterspeed="300" data-slideindex="back">
 											<!-- THE MAIN IMAGE IN THE SLIDE -->
-											<img src="images/samples/slide2.jpg">
+											<img src="images/samples/pskbr2.jpg">
 		
 											<!-- THE CAPTIONS OF THE THIRD SLIDE -->
 											<div class="tp-caption sft original"
@@ -267,7 +267,7 @@
 												data-captionhidden="on"
 												data-endeasing="easeOutExpo"
 												data-easing="easeOutExpo">
-												The Best Solution
+												Aktif
 											</div>
 											
 											<div class="tp-caption sfb original_high"
@@ -278,7 +278,7 @@
 												data-captionhidden="on"
 												data-endeasing="easeOutExpo"
 												data-easing="easeOutExpo">
-												You can Find!
+												Kreatif
 											</div>
 											
 										</li>
@@ -288,7 +288,29 @@
 										<li data-transition="fade" data-slotamount="10" data-masterspeed="300" data-slideindex="back">
 										
 												<!-- THE MAIN IMAGE IN THE SLIDE -->
-												<img src="images/slide-black.jpg">
+												<img src="images/samples/uprguru.jpg">
+
+												<div class="tp-caption sfl original"
+												data-x="100"
+												data-y="146"
+												data-speed="300"
+												data-start="600"
+												data-captionhidden="on"
+												data-endeasing="easeOutExpo"
+												data-easing="easeOutExpo">
+												Bersih
+											</div>
+											
+											<div class="tp-caption sfr original_high"
+												data-x="142"
+												data-y="178"
+												data-speed="300"
+												data-start="800"
+												data-captionhidden="on"
+												data-endeasing="easeOutExpo"
+												data-easing="easeOutExpo">
+												Beriman
+											</div>
 
 												
 
@@ -297,7 +319,7 @@
 										<!-- THE FIFTH SLIDE -->
 										<li data-transition="fade" data-slotamount="10" data-masterspeed="300" data-slideindex="back">
 											<!-- THE MAIN IMAGE IN THE SLIDE -->
-											<img src="images/samples/slide1.jpg">
+											<img src="images/samples/halal.jpg">
 		
 											<!-- THE CAPTIONS OF THE FIFTH SLIDE -->
 											<div class="tp-caption sft original"
@@ -308,7 +330,7 @@
 												data-captionhidden="on"
 												data-endeasing="easeOutExpo"
 												data-easing="easeOutExpo">
-												We always think
+												
 											</div>
 											
 											<div class="tp-caption sfb original_high"
@@ -319,7 +341,7 @@
 												data-captionhidden="on"
 												data-endeasing="easeOutExpo"
 												data-easing="easeOutExpo">
-												About Customers
+												
 											</div>
 											
 										</li>
@@ -530,50 +552,6 @@
 		});	
 		} );		
 	</script>
-	<script type="text/javascript">
-
-    function checkUpload(size)
-    {
-        if(size>25)
-        {
-         var n = size.toFixed(2);
-            alert('File ini berukuran: ' + n + "MB, Tolong Upload File yang lebih kecil (20MB atau kurang).");
-            document.getElementById("btn").style.display='none';
-
-        }
-        else
-        {
-            //alert('File size is OK');
-            jQuery(function($) {
-            $('#btn').show();
-            } );
-        }
-    }
-    jQuery(function($) {
-	    $('#file').bind('change', function() {
-	    var fileSize = this.files[0].size/1024/1024;
-	        checkUpload(fileSize);
-	    });
-    } );
-    function check_file(){
-        str=document.getElementById('file').value.toUpperCase();
-        suffix=".PDF";
-        suffix2=".DOC";
-        suffix3=".DOCX";
-        suffix4=".XLS";
-        suffix5=".XLSX";
-        suffix6=".PPT";
-        suffix8=".PPTX";
-        suffix9=".JPG";
-        suffix10=".PNG";
-        suffix11=".JPEG";
-        if(str.indexOf(suffix, str.length - suffix.length) == -1 || str.indexOf(suffix2, str.length - suffix2.length) == -1 || str.indexOf(suffix3, str.length - suffix3.length) == -1 || str.indexOf(suffix4, str.length - suffix4.length) == -1 || str.indexOf(suffix5, str.length - suffix5.length) == -1 || str.indexOf(suffix6, str.length - suffix6.length) == -1 || str.indexOf(suffix7, str.length - suffix7.length) == -1 || str.indexOf(suffix8, str.length - suffix8.length) == -1 || str.indexOf(suffix9, str.length - suffix9.length) == -1 || str.indexOf(suffix10, str.length - suffix10.length) == -1 || str.indexOf(suffix11, str.length - suffix11.length) == -1 )
-    	{
-        	alert('Format File tidak di izinkan,\n file yang di izinkan: *.jpg,*.jpeg, *.pdf, *.doc, *.docx, *.xls, *.xlsx, *.ppt, *.pptx, *.png');
-            document.getElementById('file').value='';
-        }
-    }
-</script>
 	<script type="text/javascript" src="../assets/lib/jasny/js/jasny-bootstrap.min.js"></script>
 </body>
 </html>

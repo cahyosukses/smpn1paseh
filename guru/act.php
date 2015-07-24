@@ -227,8 +227,6 @@ elseif ($act == 'ubah_nilai') {
 			window.location.href='../frontend/index.php?menu=beranda_guru&aksi=nilai_sum&id_mapel=$id_mapel';
 		</script>";
 }
-
-// DOWNLOAD nilai Matpel
 elseif ($act == 'download_tugas') {
 	$id_mapel = $_GET['id_mapel'];
 	$nip = $_GET['nip'];

@@ -8,7 +8,7 @@
 		    <input type='text' name='judul' class='form-control' tabindex="1" placeholder='Judul Berita' required />
 		</div>
 		<div class='form-group'>
-		    <label>Judul Berita</label>
+		    <label>Link</label>
 		    <input type='text' name='link' class='form-control' tabindex="2" placeholder='Link Berita' required />
 		</div>
 		<button type='submit' value='Save Data' class='btn btn-success' >Save Data</button>

@@ -19,7 +19,6 @@
       <tr>
         <th>#</th>
         <th>Nama Mata Pelajaran</th>
-        <th>Kelas</th>
         <th width="15%">Action</th>
       </tr>
     </thead>
@@ -36,7 +35,6 @@
 			<tr>
 				<td><?php echo $i; ?></td>
 				<td><?php echo ucwords($data['mapel']); ?></td>
-				<td><?php echo strtoupper($data['kelas']); ?></td>
 				<td class="ha">
 				<a href="?modul=matpel_ubah&amp;id=<?php echo $data['id']; ?>" class='btn btn-success btn-xs' title='Edit Data'>
 	            	<i class='fa fa-edit'></i>

@@ -31,9 +31,9 @@
   </head>
   <body>
     <div class="container">
-      <div class="judul bounceInDown">Login Panel</div>
+      <div class="judul bounceInDown">Login Admin</div>
         <div class="login-container animated flipInY">
-            <img src="../assets/img/logo.png" width="250">
+            <img src="../assets/img/pasone.png" width="200">
             <div class="form-box">
                 <hr>
                 <form action="login_proses.php" method="POST">

@@ -1,12 +1,14 @@
 <?php
 if(isset($_SESSION['login']) && isset($_SESSION['siswa'])){
 	$nis = $_SESSION['nis'];
+	$selectSiswa = mysql_query("SELECT nama FROM tbl_data_siswa WHERE nis = '$nis'");
+	$dataSiswa = mysql_fetch_array($selectSiswa);
 ?>
 		<h2>Lihat Nilai</h2>
 		<div class="grid_8 well">
 			<div class="info-box">
 				<div class="clearfix">
-					<h3 align="center">Kelas VII</h3>
+					<h3 align="center"><?php echo $dataSiswa['nama']; ?></h3>
 					<table class="zebra" id="dataTabel">
 					    <thead>
 					    <tr>
@@ -22,6 +24,7 @@ if(isset($_SESSION['login']) && isset($_SESSION['siswa'])){
 					    	include_once("../koneksi.php");
 							koneksi();
 					    	$i=1;
+					    	$jumlah = 0;
 					    	$selectKelas = mysql_query("SELECT * FROM tbl_pilihkelas p JOIN tbl_data_mapel m ON p.id_mapel = m.id WHERE p.nis = '$nis' GROUP BY p.id_mapel");
 					    	while ($data = mysql_fetch_array($selectKelas)) {
 					    ?>   
@@ -34,14 +37,22 @@ if(isset($_SESSION['login']) && isset($_SESSION['siswa'])){
 
 					        <td>
 	        				<b><?php 
-	        					echo (0.3*$data['uts'])+(0.5*$data['uas'])+(0.2*$data['kuis']);
-	        				?></b>
+		        						$nilai_akhir = round((0.3*$data['uts'])+(0.5*$data['uas'])+(0.2*$data['kuis']));
+		        						echo $nilai_akhir;
+		        						$jumlah += $nilai_akhir;
+		        					?></b>
         				</td>
 					    </tr> 
 				     	<?php
-					    	$i++;
+					    	$i++; 
 					    	}
-					    ?>       
+					    ?>   
+					    <tfoot>
+					    	<tr>
+						        <th colspan="5"><b>Rata - Rata</b></th>        
+						        <th align="left"><?php echo @number_format($jumlah/mysql_num_rows($selectKelas)); ?></th>
+						    </tr>
+					    </tfoot>      
 					</table>
 
 				</div>

@@ -7,7 +7,7 @@
 	$nip = $_GET['nip'];
 	$nis = $_SESSION['nis'];
 ?>
-<h2>Masuk Kelas</h2>
+<h2>Kelas yang dipilih</h2>
 <div class="grid_8 well">
 	<div class="clearfix">.
 		<?php
@@ -43,16 +43,25 @@
 							    	include_once("../koneksi.php");
 									koneksi();
 							    	$i=1;
-							    	$selectKelas = mysql_query("SELECT m.judul, g.nama, m.nama_file FROM tbl_pembelajaran_materi m JOIN tbl_data_mapel mapel ON m.id_mapel=mapel.id JOIN tbl_data_guru g ON m.nip = g.nip WHERE m.id_mapel = '$id_mapel'");
+							    	$selectKelas = mysql_query("SELECT mapel.mapel, g.nama, m.nama_file FROM tbl_pembelajaran_materi m JOIN tbl_data_mapel mapel ON m.id_mapel=mapel.id JOIN tbl_data_guru g ON m.nip = g.nip WHERE m.id_mapel = '$id_mapel'");
 							    	while ($data = mysql_fetch_array($selectKelas)) {
 							    ?>   
 								    <tr>
 								        <td><?php echo $i; ?></td>        
-					        			<td><?php echo $data['judul']; ?></td>
+					        			<td><?php echo $data['mapel']; ?></td>
 					        			<td><?php echo $data['nama']; ?></td>
 								        <td align="center">
+									        <?php
+									        	$namaFile = $data['nama_file'];
+									        	$arNamaFile = explode(".", $namaFile);
+									        	$ext = $arNamaFile[1];
+									        	if ($ext == "mp4") {
+									        		?>
+									        		<a href='javascript:;'  onClick="window.open('../directory_files/materi/<?php echo $namaFile ?>','scrollwindow','top=200,left=300,width=800,height=500')" title='download'>Lihat</a>
+									        		<?php
+									        	}
+									        ?>
 								        	<a href="../assets/function/downloadMateri.php?nama_file=<?php echo $data['nama_file']; ?>" title="download"><i class="icon-download icon-2x"></i></a>
-							        		
 							        	</td>
 								    </tr>    
 						      	<?php
@@ -72,7 +81,7 @@
 								<thead>
 									<tr>
 										<th width="40%">Nama File</th>
-										<th width="60%" align="center"><b style="color:red">**</b> File tidak boleh lebih dari 20mb <br/><b style="color:red">**</b>file yang di izinkan: *.jpg,*.jpeg, *.pdf, *.doc, *.docx, *.xls, *.xlsx, *.ppt, *.pptx, *.png</th>
+										<th width="60%" align="center"><b style="color:red">**</b> File tidak boleh lebih dari 20mb</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -82,16 +91,16 @@
 													<input type="hidden" name="nis" value="<?php echo $nis ?>">
 													<input type="hidden" name="mapel" value="<?php echo $id_mapel ?>">
 													<input type="hidden" name="nip" value="<?php echo $nip ?>">
-													<input type="text" name="judul">
+													<input type="text" name="judul" required>
 													<div class="alert alert-info">
 														<i class="icon-info-sign"></i>
-														format kelas_mapel_tahunajarangenap/ganjil. Contoh: VII_MATEMATIKA_2011GENAP
+														format kelas_mapel_judul. Contoh: VII_MATEMATIKA_TUGAS1
 													</div>
 												
 											</td>
 											<td align="center">
-												<input type="file" name="tugas" id="file" onchange="check_file()"/><br/><br/>
-												<input type="submit" name="btnKirim" class="btn" id="btn" value="Kirim">
+												<input type="file" name="tugas"/ required><br/><br/>
+												<input type="submit" name="btnKirim" class="btn" value="Kirim">
 											</td>
 										</tr>
 									</form>
@@ -121,6 +130,16 @@
 									        <td><?php echo $dataTugas['judul']; ?></td>
 									        <td><?php echo ($dataTugas['nilai'] == 0)?"-":$dataTugas['nilai']; ?></td>
 									        <td align="center">
+									        <?php
+									        	$namaFile = $dataTugas['nama_file'];
+									        	$arNamaFile = explode(".", $namaFile);
+									        	$ext = $arNamaFile[1];
+									        	if ($ext == "mp4") {
+									        		?>
+									        		<a href='javascript:;'  onClick="window.open('../directory_files/tugas/<?php echo $namaFile ?>','scrollwindow','top=200,left=300,width=800,height=500')" title='download'>Lihat</a>
+									        		<?php
+									        	}
+									        ?>
 								        	<a href="../assets/function/downloadTugas.php?nama_file=<?php echo $dataTugas['nama_file'] ?>"  title="download"><i class="icon-download icon-2x"></i></a>
 							        		<a href='../siswa/act.php?act=hapus_tugas&amp;id=<?php echo $dataTugas['id']; ?>&amp;nip=<?php echo $nip ?>&amp;id_mapel=<?php echo $id_mapel ?>' style="color:red" title='Delete Data' onClick="return confirm('Anda yakin ingin menghapus Tugas ini ?')">
 	   											<i class="icon-trash icon-2x"></i>
@@ -158,7 +177,7 @@
 								<?php
 									}
 								?>
-							</div>
+							</div> 
 							
 						</div>
 					</div>
@@ -186,7 +205,7 @@
 													<!-- BEGIN SINGLE COMMENT -->
 													<div class="comment-wrapper">
 														<div class="comment-author vcard">
-															<p class="gravatar"><img src="../directory_files/foto_guru/<?php echo $dataGuru['foto'] ?>" alt="" width="60" height="60" /></p>
+															<p class="gravatar"><img src="../directory_files/foto_guru/<?php echo $dataGuru['foto'] ?>" alt="" width="60" height="60" />
 															<span class="author"><?php echo $dataGuru['nama'] ?></span>
 														</div>
 														<div class="comment-meta">
@@ -259,7 +278,7 @@
 									<input type="hidden" name="nis" value="<?php echo $nis ?>">
 									<input type="hidden" name="nip" value="<?php echo $nip ?>">
 									<input type="hidden" name="id_mapel" value="<?php echo $id_mapel ?>">
-									<textarea name="pesan" style="width:550px"></textarea>
+									<textarea name="pesan" style="width:550px" required></textarea>
 									<input type="submit" name="submit" id="submit" value="Kirim" style="float:right">
 								</form>
 							</div>

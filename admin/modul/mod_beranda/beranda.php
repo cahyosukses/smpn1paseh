@@ -1,8 +1,8 @@
 <?php
 	if(isset($_SESSION['login'])){
 ?>
-HALAMAN BERANDA
-
+HALAMAN BERANDA<br>
+<center><img src="../assets/img/pasone.png" ></center>
 <?php
 }
 else

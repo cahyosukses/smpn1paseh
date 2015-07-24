@@ -16,17 +16,17 @@
 			    	<input type='text' name='nama' class='form-control' tabindex="2" placeholder='Mata Pelajaran' required value="<?php echo $data['mapel'] ?>" />
 			    </div>
 			</div>
-			<div class="form-group">
+			<!-- <div class="form-group">
 	           	<label class="control-label col-lg-4">Kelas</label>
 			    <div class="col-lg-8">
 		            <select class="form-control" name="kelas" tabindex="3" required>
 		            	<option value="">Pilih Kelas</option>
-		            	<option value="vii" <?php echo ($data['kelas'] =='vii')?'selected':'' ?>>VII</option>
-		            	<option value="viii" <?php echo ($data['kelas'] =='viii')?'selected':'' ?>>VIII</option>
-		            	<option value="ix" <?php echo ($data['kelas'] =='ix')?'selected':'' ?>>IX</option>
+		            	<option value="vii" <?php //echo ($data['kelas'] =='vii')?'selected':'' ?>>VII</option>
+		            	<option value="viii" <?php //echo ($data['kelas'] =='viii')?'selected':'' ?>>VIII</option>
+		            	<option value="ix" <?php //echo ($data['kelas'] =='ix')?'selected':'' ?>>IX</option>
 		            </select>
 	         	</div>
-	        </div>
+	        </div> -->
 			<div class="form-group">
 				<label class="control-label col-lg-4"></label>
 			    <div class="col-lg-8">

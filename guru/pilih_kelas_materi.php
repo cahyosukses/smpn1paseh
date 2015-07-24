@@ -7,7 +7,7 @@
 	$selectGuru = mysql_query("SELECT * FROM tbl_data_guru WHERE nip = '$nip'");
 	$dataGuru = mysql_fetch_array($selectGuru);
 ?>
-<h2>Diskusi</h2>
+<h2>Materi</h2>
 <div class="grid_8 well">
 	<div class="clearfix">
 		<h3 align="center">Pilih Kelas</h3>

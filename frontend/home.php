@@ -15,7 +15,7 @@
 					<label for="password">Password</label>
 					<input type="password" name="password" id="password" required>
 				</div>
-				<div class="field">
+				<div class="field"> 
 					<label >Login Sebagai</label><br/>
 					<input type="radio" value="guru" name="hak" id="guru"> <label class="label-custom" for="guru">Guru &nbsp; &nbsp; &nbsp; &nbsp;</label>
 					<input type="radio" value="siswa" name="hak" id="siswa"> <label class="label-custom" for="siswa">Siswa</label>
@@ -62,11 +62,14 @@
 	<div class="grid_12">
 		<h2>Tentang Sekolah</h2>
 		<div class="info-box">
-			<img src="images/samples/img220x200.jpg" height="200" width="220" alt="" class="alignright halfwidth">
-			<p><strong>Fusce ac pharetra urna</strong>. Duis non lacus sit amet lacus interdum facilis sed non est. Ut mi metus, semper eu dictum nec, condimentum sed sapien. Nullam lobortis nunc semper ipsum luctus ut viverra ante eleifend. Nunc pretium velit sed augue luctus accumsan. </p>
-			<p>
-			Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac felis. Donec non erat sed elit bibendum sodales. Donec eu cursus velit. Proin nunc lacus, gravida mollis dictu ut, vulputate eu turpis. Sed felis sapien. commodo in iaculis in, feugiat sed enim. Sed nunc ipsum, fermentum varius dignis.
-			</p>
+			<img src="images/samples/pasone.png" height="90" width="100" alt="" class="alignright halfwidth">
+			<p style="text-indent:15px;" align="justify"><strong>Selamat Datang di E-learning SMPN 1 Paseh</strong>. Web site resmi SMPN 1 Paseh yang berisi informasi tentang sekolah ini, mulai dari sejarah, 
+				visi, misi dan tujuan dan juga berita seputar aktivitas siswa-siswi dan guru di sekolah kami ini.</p>
+			<p style="text-indent:15px;" align="justify">
+			E-learning SMPN 1 Paseh merupakan salah satu sarana pembelajaran interaktif, dimana para guru dan para siswa dapat berkomunikasi dengan menggunakan media internet. Para guru
+			 dapat memberikan materi, baik berupa file, video, tulisan ataupun materi-materi kuliah dalam bentuk dokumen lainnya, 
+			 memberikan informasi-informasi penting kepada para siswanya, membaca dan memberikan jawaban untuk pertanyaan-pertanyaan yang diberikan para siswanya.
+			 </p>
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -129,15 +132,15 @@
 			<form method="post" action="act.php?act=saran" id="contact-form" class="contact-form">
 				<div class="field">
 					<label for="name">Nama:</label>
-					<input type="text" name="nama" id="name">
+					<input type="text" name="nama" id="name" required>
 				</div>
 				<div class="field">
 					<label for="email">Email:</label>
-					<input type="email" name="email" id="email">
+					<input type="email" name="email" id="email" required>
 				</div>
 				<div class="field">
 					<label for="contact-message">Komentar:</label>
-					<textarea name="komentar" id="comments" cols="30" rows="10"></textarea>
+					<textarea name="komentar" id="comments" cols="30" rows="10" required></textarea>
 				</div>
 				<div class="button-wrapper">
 					<input type="submit" name="btnSaran" id="submit" value="Kirim">
@@ -156,9 +159,9 @@
 		<div class="info-box">
 			<div class="widget-content">
 				
-					<i class="icon-home"></i><strong>Jalan Kadatuan no 1 desa mekarpawtitan
-					Kecamatan Pase 
-					Kabupaten bandung 40383
+					<i class="icon-home"></i><strong>Jalan Kadatuan No 1 Desa Mekarpawtitan
+					Kecamatan Paseh
+					Kabupaten Bandung 40383
 					Jawa Barat</strong><br>
 					<i class="icon-phone"></i> 022-5950012<br>
 					<i class="icon-envelope-alt"></i> <a href="mailto:smpn1paseh@gmail.com">smpn1paseh@gmail.com</a><br>
@@ -173,9 +176,9 @@
 			<div class="info-box">
 				<!-- Social Links -->
 				<ul class="social-links unstyled" align="center">
-					<li class="ico-twitter"><a href="#">Twitter</a></li>
-					<li class="ico-facebook"><a href="#">Facebook</a></li>
-					<li class="ico-googleplus"><a href="#">Google+</a></li>
+					<li class="ico-twitter"><a href="https://twitter.com/smpn1paseh" target=_blank>Twitter</a></li>
+					<li class="ico-facebook"><a href="https://www.facebook.com/smpn1pasehkab.bandung" target=_blank>Facebook</a></li>
+					<li class="ico-googleplus"><a href="#" target=_blank>Google+</a></li>
 				</ul>
 				<!-- /Social Links -->
 				<br/>

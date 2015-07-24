@@ -1,4 +1,4 @@
-<?php
+<?php 
 include_once("../../../koneksi.php");
 koneksi();
 include '../../../assets/lib/php_excel/PHPExcel/IOFactory.php';
@@ -103,9 +103,9 @@ elseif ($act == "hapus") {
 	{
 	$data = mysql_fetch_array($result);
 	//delete file
-	@unlink('../../../directory_files/foto_guru/'.$data['foto']);
+	// @unlink('../../../directory_files/foto_siswa/'.$data['foto']);
 	//delete data di database
-	// mysql_query("DELETE FROM tbl_data_guru WHERE nip='$id' ");
+	mysql_query("DELETE FROM tbl_data_guru WHERE nip='$id' ");
 	echo "
 		<script>
 			window.location.href='../../main.php?modul=guru';

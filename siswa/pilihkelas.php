@@ -59,7 +59,7 @@
 				<div class="field">
 					<label for="contact-message">Guru:</label>
 					<select name="guru" id="guru" onchange="ajaxguru(this.value)">
-						<option value="">PILIH GURU</option>
+						<option value="" required>Pilih Guru</option>
 						<?php
 					    	$selectGuru = mysql_query("SELECT * FROM tbl_data_guru");
 					    	while ($data=mysql_fetch_array($selectGuru)) {
@@ -71,14 +71,14 @@
 				<div class="field">
 					<label for="contact-message">Mata Pelajaran:</label>
 					<select name="mapel" id="mapel" onchange="ajaxkelas(this.value)">
-						<option value="">Pilih mata pelajaran</option>
+						<option value="" required>Pilih Mata Pelajaran</option>
 					</select>
 				</div>
 				<div class="field">
 					<input type="hidden" name="nis" value="<?php echo $nis ?>">
 					<label for="contact-message">Kelas:</label>
 					<select name="kelas" id="kelas" >
-						<option value="">Pilih Kelas</option>
+						<option value="" required>Pilih Kelas</option>
 					</select>
 				</div>
 				<!-- <div class="field">

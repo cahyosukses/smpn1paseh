@@ -15,11 +15,11 @@
 					<label for="name">Judul:</label>
 					<input type="hidden" name="id_mapel" value="<?php echo $_GET['id_mapel']; ?>">
 					<input type="hidden" name="nip" value="<?php echo $_SESSION['nip']; ?>">
-					<input type="text" name="judul" id="name">
+					<input type="text" name="judul" id="name" required>
 				</div>
 				<div class="field">
 					<label for="contact-message">Pesan:</label>
-					<textarea name="pesan" id="pesan" cols="30" rows="5"></textarea>
+					<textarea name="pesan" id="pesan" cols="30" rows="5" required></textarea>
 				</div>
 				<div class="button-wrapper">
 					<input type="submit" name="submit" id="submit" value="Kirim">

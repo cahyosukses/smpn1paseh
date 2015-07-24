@@ -10,7 +10,7 @@
 			    	<input type='text' name='nama' class='form-control' tabindex="2" placeholder='Mata Pelajaran' required />
 			    </div>
 			</div>
-			<div class="form-group">
+			<!-- <div class="form-group">
 	           	<label class="control-label col-lg-4">Kelas</label>
 			    <div class="col-lg-8">
 		            <select class="form-control" name="kelas" tabindex="3" required>
@@ -20,7 +20,7 @@
 		            	<option value="ix">IX</option>
 		            </select>
 	         	</div>
-	        </div>
+	        </div> -->
 			<div class="form-group">
 				<label class="control-label col-lg-4"></label>
 			    <div class="col-lg-8">

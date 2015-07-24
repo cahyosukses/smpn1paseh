@@ -17,7 +17,7 @@
 		        <th>#</th>        
 		        <th>Nama Siswa</th>
 		        <th>Aksi</th>
-		        <th>Download</th>
+		        <th>Cetak</th>
 
 		    </tr>
 		    </thead>
@@ -36,7 +36,7 @@
 				        	<a href="?menu=beranda_guru&amp;aksi=lihat_nilai&amp;id=<?php echo $data['nis'] ?>" title="Lihat Nilai">Lihat Nilai</a>
 			        	</td>
 				        <td align="center">
-				        	<a href="javascript:;" onClick="window.open('../assets/function/cetakNilaiMurid.php?nis=<?php echo $data['nis'] ?>&amp;nip=<?php echo $_SESSION['nip'] ?>','scrollwindow','top=200,left=300,width=800,height=500');"><i class="icon-download icon-2x"></i> Download</a>
+				        	<a href="javascript:;" onClick="window.open('../assets/function/cetakNilaiMurid.php?nis=<?php echo $data['nis'] ?>&amp;nip=<?php echo $_SESSION['nip'] ?>','scrollwindow','top=200,left=300,width=800,height=500');">Cetak Nilai</a>
 				        </td>
 				    </tr>
 		    <?php

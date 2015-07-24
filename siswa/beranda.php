@@ -43,7 +43,7 @@
 						?>
 						<h2><a href="?menu=beranda_siswa&amp;aksi=profil" <?php echo ($aksi =='profil')?'class="current-submenu"':'' ?>>Profil</a></h2>
 						<h2><a href="?menu=beranda_siswa&amp;aksi=pilihkelas" <?php echo ($aksi =='pilihkelas')?'class="current-submenu"':'' ?>>Pilih Kelas</a></h2>
-						<h2><a href="?menu=beranda_siswa&amp;aksi=masukkelas" <?php echo ($aksi =='masukkelas')?'class="current-submenu"':'' ?>>Masuk Kelas</a></h2>
+						<h2><a href="?menu=beranda_siswa&amp;aksi=masukkelas" <?php echo ($aksi =='masukkelas')?'class="current-submenu"':'' ?>>Kelas yang dipilih</a></h2>
 						<h2><a href="?menu=beranda_siswa&amp;aksi=lihatnilai" <?php echo ($aksi =='lihatnilai')?'class="current-submenu"':'' ?>>Lihat Nilai</a></h2>
 						<h2><a href="../frontend/logout.php">logout</a></h2>
 					</div>

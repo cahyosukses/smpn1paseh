@@ -25,7 +25,7 @@
 								{
 									$selectGuru = mysql_query("SELECT * FROM tbl_data_guru WHERE nip = '$data[pengirim]'");
 									$dataGuru = mysql_fetch_array($selectGuru);
-								
+				 				
 						?>
 								<li class="comment sendiri">
 									<!-- BEGIN SINGLE COMMENT -->
@@ -79,8 +79,8 @@
 				<form method="POST" action="../guru/act.php?act=chating">
 					<input type="hidden" name="nip" value="<?php echo $nip ?>">
 					<input type="hidden" name="id_mapel" value="<?php echo $_GET['id_mapel'] ?>">
-					<textarea name="pesan" style="width:550px"></textarea>
-					<input type="submit" name="submit" id="submit" value="Kirim" style="float:right">
+					<textarea name="pesan" style="width:550px" required></textarea>
+					<input type="submit" name="submit" id="submit" value="Kirim" style="float:right" >
 				</form>
 			</div>
 		</div>

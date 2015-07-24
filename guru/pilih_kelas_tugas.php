@@ -1,4 +1,4 @@
-<?php
+<?php 
 	if(isset($_SESSION['login'])){
 	include_once("../koneksi.php");
 	include_once("../assets/function/fungsi.php");

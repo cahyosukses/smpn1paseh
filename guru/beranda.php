@@ -44,13 +44,14 @@
 							$aksi = isset($_GET['aksi'])?$_GET['aksi'] : ''; 
 						?>
 						<h2><a href="?menu=beranda_guru&amp;aksi=profil" <?php echo ($aksi =='profil')?'class="current-submenu"':'' ?>>Profil</a></h2>
-						<h2><a href="?menu=beranda_guru&amp;aksi=pilih_kelas_materi" <?php echo ($aksi =='pilih_kelas_materi') || ($aksi =='materi')?'class="current-submenu"':'' ?>>Materi</a></h2>
-						<h2><a href="?menu=beranda_guru&amp;aksi=pilih_kelas_tugas" <?php echo ($aksi =='pilih_kelas_tugas') || ($aksi == 'tugas')?'class="current-submenu"':'' ?>>Tugas Yang Diterima</a></h2>
+						<h2><a href="?menu=beranda_guru&amp;aksi=pilih_kelas_materi" <?php echo ($aksi =='pilih_kelas_materi') || ($aksi == 'materi')?'class="current-submenu"':'' ?>>Materi</a></h2>
+						<h2><a href="?menu=beranda_guru&amp;aksi=pilih_kelas_tugas" <?php echo ($aksi =='pilih_kelas_tugas') || ($aksi == 'tugas')?'class="current-submenu"':'' ?>>Tugas Diterima</a></h2>
 						<h2><a href="?menu=beranda_guru&amp;aksi=pilih_kelas_pengumuman" <?php echo ($aksi =='pilih_kelas_pengumuman') || ($aksi == 'pengumuman')?'class="current-submenu"':'' ?>>Pengumuman</a></h2>
 						<h2><a href="?menu=beranda_guru&amp;aksi=pilih_kelas_diskusi" <?php echo ($aksi =='pilih_kelas_diskusi') || ($aksi =='diskusi')?'class="current-submenu"':'' ?>>Diskusi</a></h2>
 						<!-- <h2><a href="?menu=beranda_guru&amp;aksi=nilai" <?php //echo ($aksi =='nilai')?'class="current-submenu"':'' ?>>Kirim Nilai</a></h2> -->
 						<h2><a href="?menu=beranda_guru&amp;aksi=pilih_kelas_nilai_sum" <?php echo ($aksi =='pilih_kelas_nilai_sum') || ($aksi =='nilai_sum')?'class="current-submenu"':'' ?>>Isi Nilai</a></h2>
-						<!-- <h2><a href="?menu=beranda_guru&amp;aksi=jadwal" <?php //echo ($aksi =='jadwal')?'class="current-submenu"':'' ?>>Jadwal</a></h2> -->
+						<h2><a href="?menu=beranda_guru&amp;aksi=nilai_kelas" <?php echo ($aksi =='nilai_kelas')?'class="current-submenu"':'' ?>>Walikelas</a></h2>
+						
 						<h2><a href="?menu=beranda_guru&amp;aksi=cuitan" <?php echo ($aksi =='cuitan')?'class="current-submenu"':'' ?>>Cuitan</a></h2>
 						<?php
 							$selectGuru = mysql_query("SELECT * FROM tbl_data_kelas WHERE nip = '$nip' ");
@@ -62,7 +63,6 @@
 							{
 						?>
 						<!-- <h2><a href="?menu=beranda_guru&amp;aksi=walikelas" <?php //echo ($aksi =='walikelas')?'class="current-submenu"':'' ?>>Nilai Kelas</a></h2> -->
-						<h2><a href="?menu=beranda_guru&amp;aksi=nilai_kelas" <?php echo ($aksi =='nilai_kelas')?'class="current-submenu"':'' ?>>Nilai Kelas</a></h2>
 						<?php
 							}
 						?>

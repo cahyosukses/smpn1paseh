@@ -8,7 +8,7 @@ if(isset($_SESSION['login']) && isset($_SESSION['guru'])){
 	$selectSiswa = mysql_query("SELECT nama FROM tbl_data_siswa WHERE nis = '$nis'");
 	$dataSiswa = mysql_fetch_array($selectSiswa);
 ?>
-		<h2>Masuk Kelas</h2>
+		<h2>Lihat Nilai</h2>
 		<div class="grid_8 well">
 			<div class="info-box">
 				<div class="clearfix">
@@ -21,7 +21,7 @@ if(isset($_SESSION['login']) && isset($_SESSION['guru'])){
 					        <th>UTS</th>
 					        <th>UAS</th>
 					        <th>Kuis</th>
-					        <th>Nilai Akhir</th>
+					         <th>Nilai Akhir</th>
 					    </tr>
 					    </thead>
 					    <?php
@@ -30,9 +30,7 @@ if(isset($_SESSION['login']) && isset($_SESSION['guru'])){
 					    	$i=1;
 					    	$jumlah = 0;
 					    	$selectKelas = mysql_query("SELECT * FROM tbl_pilihkelas p JOIN tbl_data_mapel m ON p.id_mapel = m.id WHERE p.nis = '$nis' GROUP BY p.id_mapel");
-					    	// $selectKelas = mysql_query("SELECT * FROM tbl_detail_kelas JOIN tbl_pilihkelas p ON k.nis = p.nis JOIN tbl_data_mapel m ON p.id_mapel = m.id  WHERE k.nis = '$nis'");
 					    	while ($data = mysql_fetch_array($selectKelas)) {
-					    		 
 					    ?>   
 					    <tr>
 					        <td><?php echo $i; ?></td>        
@@ -40,26 +38,25 @@ if(isset($_SESSION['login']) && isset($_SESSION['guru'])){
 					        <td><?php echo $data['uts']; ?></td>
 					        <td><?php echo $data['uas']; ?></td>
 					        <td><?php echo $data['kuis']; ?></td>
+
 					        <td>
-		        				<b>
-		        					<?php 
+	        				<b><?php 
 		        						$nilai_akhir = round((0.3*$data['uts'])+(0.5*$data['uas'])+(0.2*$data['kuis']));
 		        						echo $nilai_akhir;
 		        						$jumlah += $nilai_akhir;
-		        					?>
-		        				</b>
-        					</td>
+		        					?></b>
+        				</td>
 					    </tr> 
 				     	<?php
-					    	$i++;
+					    	$i++; 
 					    	}
-					    ?>
+					    ?>   
 					    <tfoot>
 					    	<tr>
 						        <th colspan="5"><b>Rata - Rata</b></th>        
 						        <th align="left"><?php echo @number_format($jumlah/mysql_num_rows($selectKelas)); ?></th>
 						    </tr>
-					    </tfoot>       
+					    </tfoot>      
 					</table>
 
 				</div>

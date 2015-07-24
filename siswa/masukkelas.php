@@ -20,7 +20,7 @@
 		<div class="grid_8 well">
 			<div class="info-box">
 				<div class="clearfix">
-					<h3 align="center">Kelas VII</h3>
+					<h3 align="center">Kelas yang dipilih</h3>
 					<table class="zebra" id="dataTabel">
 					    <thead>
 					    <tr>

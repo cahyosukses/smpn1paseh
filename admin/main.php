@@ -44,38 +44,19 @@
 	        <div class="row">
 	        	<!-- MENU KIRI -->
 	            <div class="col-md-3">
-	                <img src="../assets/img/logo.png" alt="logo" class="logo-img">
+	                
 	                  	<ul id="menu" class="list-group menu-kiri">
-	                      	<li>
-	                          <a href="?modul=beranda" class="list-group-item">Beranda</a>
-	                      	</li>
-	                     	<li>
-	                          	<a href="#"  class="list-group-item">Data Master <span class="fa plus-minus"></span></a>
-	                          	<ul class="child-parent">
-	                              	<li><a href="?modul=siswa">Data Siswa </a></li>
-	                              	<li><a href="?modul=guru">Data Guru</a></li>
-	                              	<!-- <li><a href="?modul=walikelas">Data Walikelas</a></li> -->
-	                             	 <li><a href="?modul=kelas">Data Kelas</a></li>
-	                              	<li><a href="?modul=matpel">Data Mata Pelajaran</a></li>
-	                              	<!-- <li><a href="?modul=hari">Data Hari</a></li>
-	                              	<li><a href="?modul=jam">Data Jam</a></li> -->
-	                          	</ul>
-	                      	</li>
-	                       	<li>
-	                       		<a href="#"  class="list-group-item">Informasi <span class="fa plus-minus"></span></a>
-	                       		<ul class="child-parent">
-	                              	<li><a href="?modul=berita">Berita </a></li>
-	                              	<li><a href="?modul=pengumuman">Pengumuman</a></li>
-	                              	<li><a href="?modul=kritiksaran">Kritik dan Saran</a></li>
-	                          	</ul>
-	                      	</li>
-	                      	<li>
-	                          <!-- <a href="?modul=jadwal" class="list-group-item">Penjadwalan</a> -->
-	                          <a href="?modul=detail_guru" class="list-group-item">Detail Guru</a>
-	                      	</li>
-	                      	<li>
-	                          <a href="?modul=detail_kelas" class="list-group-item">Detail Kelas</a>
-	                      	</li>
+	                      	<li><a href="?modul=beranda" class="list-group-item">Beranda</a></li>
+	                         <li><a href="?modul=siswa" class="list-group-item">Data Siswa</a></li>
+	                         <li><a href="?modul=guru" class="list-group-item">Data Guru</a></li>
+	                         <li><a href="?modul=kelas" class="list-group-item">Data Kelas</a></li>
+	                          <li><a href="?modul=matpel" class="list-group-item">Data Mata Pelajaran</a></li>
+	                          <li><a href="?modul=detail_guru" class="list-group-item">Detail Guru</a></li>
+	                      	<li><a href="?modul=detail_kelas" class="list-group-item">Detail Kelas</a></li>
+	                          <li><a href="?modul=berita" class="list-group-item">Berita</a></li>
+	                          <li><a href="?modul=pengumuman" class="list-group-item">Pengumuman</a></li>
+	                          <li><a href="?modul=kritiksaran" class="list-group-item">Kritik dan Saran</a></li>                 	
+	                      	
 	                  	</ul>
 	            </div>
 	            <!-- END MENU KIRI -->
