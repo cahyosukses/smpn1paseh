@@ -328,3 +328,41 @@ elseif ($act == 'download_tugas') {
 	}
 	
 }
+
+// DISKUSI
+elseif ($act == 'buat_diskusi') {
+	$judul = mysql_real_escape_string($_POST['judul']);
+	$date = date("Y-m-d H:i:s");
+	$nip = mysql_real_escape_string($_POST['nip']);
+	$deskripsi = mysql_real_escape_string($_POST['deskripsi']);
+	$id_mapel = mysql_real_escape_string($_POST['mapel']);
+
+	mysql_query("INSERT INTO tbl_diskusi (judul, tgl_dibuat, id_pembuat, deskripsi, is_guru, id_mapel, nip) VALUES ('$judul','$date','$nip','$deskripsi','1','$id_mapel','$nip')");
+	echo "<script>
+			alert('Diskusi Berhasil Ditambah');
+			window.location.href='../frontend/index.php?menu=beranda_guru&aksi=diskusi&id_mapel=$id_mapel';
+		</script>";
+}
+
+elseif ($act == 'hapus_diskusi') {
+	$id = $_GET['id'];
+	$nip = $_GET['nip'];
+	$id_mapel = $_GET['id_mapel'];
+	mysql_query("DELETE FROM tbl_diskusi WHERE id_diskusi = '$id'");
+	echo "	<script>
+			window.location.href='../frontend/index.php?menu=beranda_guru&aksi=diskusi&id_mapel=$id_mapel';
+		</script>";
+}
+
+elseif ($act == 'komen_diskusi') {
+	$id_diskusi = mysql_real_escape_string($_POST['id_diskusi']);
+	$nip = mysql_real_escape_string($_POST['nip']);
+	$id_mapel = mysql_real_escape_string($_POST['id_mapel']);
+	$pesan = mysql_real_escape_string($_POST['pesan']);
+	$date = date("Y-m-d H:i:s");
+
+	mysql_query("INSERT INTO tbl_diskusi_detail (id_diskusi,id_user, is_guru, komen, tgl) VALUES ('$id_diskusi','$nip','1','$pesan','$date')");
+	echo "	<script>
+			window.location.href='../frontend/index.php?menu=beranda_guru&aksi=diskusi_detail&id_diskusi=$id_diskusi&id_mapel=$id_mapel&id_user=$nip&nip=$nip';
+		</script>";
+}

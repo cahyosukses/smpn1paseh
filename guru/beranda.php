@@ -90,6 +90,9 @@
 		elseif ($aksi == 'diskusi') {
 			include_once('../guru/diskusi.php');
 		}
+		elseif ($aksi == 'diskusi_detail') {
+			include_once('../guru/diskusi_detail.php');
+		}
 		elseif ($aksi == 'jadwal') {
 			include_once('../guru/jadwal.php');
 		}

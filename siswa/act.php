@@ -170,3 +170,43 @@ elseif ($act == 'coba') {
 	$kelas = mysql_real_escape_string($_POST['kelas']);
 	$mapel = explode("&", $mapel);
 }
+
+// DISKUSI
+elseif ($act == 'buat_diskusi') {
+	$judul = mysql_real_escape_string($_POST['judul']);
+	$date = date("Y-m-d H:i:s");
+	$nis = mysql_real_escape_string($_POST['nis']);
+	$nip = mysql_real_escape_string($_POST['nip']);
+	$deskripsi = mysql_real_escape_string($_POST['deskripsi']);
+	$id_mapel = mysql_real_escape_string($_POST['mapel']);
+
+	mysql_query("INSERT INTO tbl_diskusi (judul, tgl_dibuat, id_pembuat, deskripsi, is_guru, id_mapel, nip) VALUES ('$judul','$date','$nis','$deskripsi','0','$id_mapel','$nip')");
+	echo "<script>
+			alert('Diskusi Berhasil Ditambah');
+			window.location.href='../frontend/index.php?menu=beranda_siswa&aksi=kelas&id=$id_mapel&nip=$nip';
+		</script>";
+}
+
+elseif ($act == 'hapus_diskusi') {
+	$id = $_GET['id'];
+	$nip = $_GET['nip'];
+	$id_mapel = $_GET['id_mapel'];
+	mysql_query("DELETE FROM tbl_diskusi WHERE id_diskusi = '$id'");
+	echo "	<script>
+			window.location.href='../frontend/index.php?menu=beranda_siswa&aksi=kelas&id=$id_mapel&nip=$nip';
+		</script>";
+}
+
+elseif ($act == 'komen_diskusi') {
+	$id_diskusi = mysql_real_escape_string($_POST['id_diskusi']);
+	$nis = mysql_real_escape_string($_POST['nis']);
+	$nip = mysql_real_escape_string($_POST['nip']);
+	$id_mapel = mysql_real_escape_string($_POST['id_mapel']);
+	$pesan = mysql_real_escape_string($_POST['pesan']);
+	$date = date("Y-m-d H:i:s");
+
+	mysql_query("INSERT INTO tbl_diskusi_detail (id_diskusi,id_user, is_guru, komen, tgl) VALUES ('$id_diskusi','$nis','0','$pesan','$date')");
+	echo "	<script>
+			window.location.href='../frontend/index.php?menu=beranda_siswa&aksi=diskusi&id_diskusi=$id_diskusi&id_mapel=$id_mapel&id_user=$nis&nip=$nip';
+		</script>";
+}

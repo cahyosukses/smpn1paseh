@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Waktu pembuatan: 03. Juli 2015 jam 03:20
--- Versi Server: 5.5.16
--- Versi PHP: 5.3.8
+-- Host: 127.0.0.1
+-- Generation Time: Jul 31, 2015 at 07:30 PM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_data_guru`
+-- Table structure for table `tbl_data_guru`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_data_guru` (
@@ -39,17 +39,16 @@ CREATE TABLE IF NOT EXISTS `tbl_data_guru` (
   `email` varchar(35) NOT NULL,
   `mapel` int(11) DEFAULT NULL,
   `status` enum('aktif','tidak') NOT NULL DEFAULT 'aktif',
-  `id_penambah` int(11) NOT NULL,
-  PRIMARY KEY (`nip`),
-  KEY `guru_fk` (`mapel`),
-  KEY `guru_admin_fk` (`id_penambah`)
+  `id_penambah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_data_guru`
+-- Dumping data for table `tbl_data_guru`
 --
 
 INSERT INTO `tbl_data_guru` (`nip`, `password`, `nama`, `foto`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `jk`, `telepon`, `email`, `mapel`, `status`, `id_penambah`) VALUES
+('10000', 'e10adc3949ba59abbe56e057f20f883e', 'Ahmad Sopian', 'dummy.jpg', 'Ciparay Hilir', 'Bandung', '1992-06-20', 'l', '022-5426980', 'ahmadsopian311@gmail.com', NULL, 'aktif', 1),
+('10001', 'e10adc3949ba59abbe56e057f20f883e', 'Aso', 'dummy.jpg', 'Cibogo', 'Tasik', '1992-06-21', 'l', '89639833612', 'ahmadega48@gmail.com', NULL, 'aktif', 1),
 ('195805091981031006', 'e10adc3949ba59abbe56e057f20f883e', 'Zuhri Umar, S.Pd.', '195805091981031006.jpg', 'Majalaya', 'Bandung', '1976-06-22', 'l', '087822470777', 'zuhriumar@gmail.com', 8, 'aktif', 1),
 ('196101111982041001', 'e10adc3949ba59abbe56e057f20f883e', 'Drs. Asep Permana, M.M.Pd.', '196101111982041001.jpg', 'Rancabali', 'Bandung', '1970-06-10', 'l', '087822176717', 'asepermana@yahoo.com', 14, 'aktif', 1),
 ('196203161984031005', 'e10adc3949ba59abbe56e057f20f883e', 'Drs. Dadan Heryana', '196203161984031005.jpg', 'Bojong', 'Bandung', '1980-12-17', 'l', '087899753425', 'dadanheryana@gmail.com', 12, 'aktif', 1);
@@ -57,43 +56,40 @@ INSERT INTO `tbl_data_guru` (`nip`, `password`, `nama`, `foto`, `alamat`, `tempa
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_data_kelas`
+-- Table structure for table `tbl_data_kelas`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_data_kelas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `kelas` varchar(10) NOT NULL,
   `detil_kelas` varchar(1) NOT NULL,
   `nip` varchar(20) NOT NULL,
-  `id_penambah` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `kelas_fk` (`nip`),
-  KEY `kelas_admin_fk` (`id_penambah`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `id_penambah` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data untuk tabel `tbl_data_kelas`
+-- Dumping data for table `tbl_data_kelas`
 --
 
 INSERT INTO `tbl_data_kelas` (`id`, `kelas`, `detil_kelas`, `nip`, `id_penambah`) VALUES
 (5, 'ix', 'a', '195805091981031006', 1),
 (7, 'ix', 'b', '196101111982041001', 1),
-(8, 'ix', 'c', '196203161984031005', 1);
+(8, 'ix', 'c', '196203161984031005', 1),
+(9, 'ix', 'd', '196101111982041001', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_data_mapel`
+-- Table structure for table `tbl_data_mapel`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_data_mapel` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mapel` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+`id` int(11) NOT NULL,
+  `mapel` varchar(50) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
--- Dumping data untuk tabel `tbl_data_mapel`
+-- Dumping data for table `tbl_data_mapel`
 --
 
 INSERT INTO `tbl_data_mapel` (`id`, `mapel`) VALUES
@@ -108,7 +104,7 @@ INSERT INTO `tbl_data_mapel` (`id`, `mapel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_data_siswa`
+-- Table structure for table `tbl_data_siswa`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_data_siswa` (
@@ -121,12 +117,11 @@ CREATE TABLE IF NOT EXISTS `tbl_data_siswa` (
   `tanggal_lahir` date NOT NULL,
   `jk` enum('l','p') NOT NULL,
   `telepon` varchar(12) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  PRIMARY KEY (`nis`)
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_data_siswa`
+-- Dumping data for table `tbl_data_siswa`
 --
 
 INSERT INTO `tbl_data_siswa` (`nis`, `password`, `nama`, `foto`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `jk`, `telepon`, `email`) VALUES
@@ -138,22 +133,18 @@ INSERT INTO `tbl_data_siswa` (`nis`, `password`, `nama`, `foto`, `alamat`, `temp
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_guru`
+-- Table structure for table `tbl_detail_guru`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_detail_guru` (
-  `id_detail` int(11) NOT NULL AUTO_INCREMENT,
+`id_detail` int(11) NOT NULL,
   `nip` varchar(20) NOT NULL,
   `id_mapel` int(11) NOT NULL,
-  `id_kelas` int(11) NOT NULL,
-  PRIMARY KEY (`id_detail`),
-  KEY `detail_guru_fk` (`nip`),
-  KEY `detail_guru_fk1` (`id_mapel`),
-  KEY `detail_guru_fk2` (`id_kelas`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+  `id_kelas` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data untuk tabel `tbl_detail_guru`
+-- Dumping data for table `tbl_detail_guru`
 --
 
 INSERT INTO `tbl_detail_guru` (`id_detail`, `nip`, `id_mapel`, `id_kelas`) VALUES
@@ -162,25 +153,23 @@ INSERT INTO `tbl_detail_guru` (`id_detail`, `nip`, `id_mapel`, `id_kelas`) VALUE
 (12, '196203161984031005', 12, 8),
 (13, '196101111982041001', 10, 7),
 (14, '196101111982041001', 14, 5),
-(15, '195805091981031006', 12, 7);
+(15, '195805091981031006', 12, 7),
+(16, '196101111982041001', 12, 9);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_kelas`
+-- Table structure for table `tbl_detail_kelas`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_detail_kelas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nis` int(20) NOT NULL,
-  `id_kelas` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `kelas_detail1` (`nis`),
-  KEY `kelas_detail2` (`id_kelas`)
+  `id_kelas` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data untuk tabel `tbl_detail_kelas`
+-- Dumping data for table `tbl_detail_kelas`
 --
 
 INSERT INTO `tbl_detail_kelas` (`id`, `nis`, `id_kelas`) VALUES
@@ -192,19 +181,77 @@ INSERT INTO `tbl_detail_kelas` (`id`, `nis`, `id_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_info_berita`
+-- Table structure for table `tbl_diskusi`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_diskusi` (
+  `judul` varchar(100) NOT NULL,
+`id_diskusi` int(11) NOT NULL,
+  `tgl_dibuat` datetime NOT NULL,
+  `id_pembuat` varchar(20) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `is_guru` tinyint(1) NOT NULL,
+  `id_mapel` int(11) NOT NULL,
+  `nip` varchar(20) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `tbl_diskusi`
+--
+
+INSERT INTO `tbl_diskusi` (`judul`, `id_diskusi`, `tgl_dibuat`, `id_pembuat`, `deskripsi`, `is_guru`, `id_mapel`, `nip`) VALUES
+('test', 4, '2015-07-31 22:54:10', '121307003', 'test diskusi', 0, 8, '195805091981031006'),
+('test guru', 5, '2015-08-01 00:05:37', '', 'test guru', 0, 8, '195805091981031006'),
+('test diskusi guru', 7, '2015-08-01 00:11:47', '195805091981031006', 'komen guru', 1, 8, '195805091981031006');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_diskusi_detail`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_diskusi_detail` (
+`id_diskusi_detail` int(11) NOT NULL,
+  `id_diskusi` int(11) NOT NULL,
+  `id_user` varchar(20) NOT NULL,
+  `is_guru` tinyint(1) NOT NULL,
+  `komen` text NOT NULL,
+  `tgl` datetime NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `tbl_diskusi_detail`
+--
+
+INSERT INTO `tbl_diskusi_detail` (`id_diskusi_detail`, `id_diskusi`, `id_user`, `is_guru`, `komen`, `tgl`) VALUES
+(1, 4, '121307003', 0, 'test 1', '2015-07-31 23:42:50'),
+(2, 4, '121307003', 0, 'test 2', '2015-07-31 23:42:55'),
+(3, 4, '121307003', 0, 'test 3', '2015-07-31 23:43:00'),
+(4, 4, '121307003', 0, 'test 4', '2015-07-31 23:43:49'),
+(5, 4, '121307003', 0, 'test 5', '2015-07-31 23:43:55'),
+(6, 4, '121307003', 0, 'test', '2015-07-31 23:56:59'),
+(7, 4, '121307003', 0, 'test 7', '2015-07-31 23:57:21'),
+(8, 4, '121307003', 0, 'test 10', '2015-07-31 23:57:50'),
+(9, 7, '195805091981031006', 1, 'hahaha', '2015-08-01 00:19:24'),
+(10, 7, '195805091981031006', 1, 'wew', '2015-08-01 00:19:28'),
+(11, 7, '195805091981031006', 1, 'wew', '2015-08-01 00:19:56'),
+(12, 7, '121307003', 0, 'wadaw', '2015-08-01 00:20:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_info_berita`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_info_berita` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `tgl` datetime NOT NULL,
   `judul` varchar(150) NOT NULL,
-  `link` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
+  `link` varchar(150) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data untuk tabel `tbl_info_berita`
+-- Dumping data for table `tbl_info_berita`
 --
 
 INSERT INTO `tbl_info_berita` (`id`, `tgl`, `judul`, `link`) VALUES
@@ -213,20 +260,18 @@ INSERT INTO `tbl_info_berita` (`id`, `tgl`, `judul`, `link`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_info_cuitan`
+-- Table structure for table `tbl_info_cuitan`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_info_cuitan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nip` varchar(20) NOT NULL,
   `tgl` datetime NOT NULL,
-  `isi` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `cuitan_fk` (`nip`)
+  `isi` text NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data untuk tabel `tbl_info_cuitan`
+-- Dumping data for table `tbl_info_cuitan`
 --
 
 INSERT INTO `tbl_info_cuitan` (`id`, `nip`, `tgl`, `isi`) VALUES
@@ -235,20 +280,19 @@ INSERT INTO `tbl_info_cuitan` (`id`, `nip`, `tgl`, `isi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_info_kritik_saran`
+-- Table structure for table `tbl_info_kritik_saran`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_info_kritik_saran` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `tgl` datetime NOT NULL,
   `nama` varchar(25) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `komentar` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `komentar` varchar(150) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data untuk tabel `tbl_info_kritik_saran`
+-- Dumping data for table `tbl_info_kritik_saran`
 --
 
 INSERT INTO `tbl_info_kritik_saran` (`id`, `tgl`, `nama`, `email`, `komentar`) VALUES
@@ -257,21 +301,19 @@ INSERT INTO `tbl_info_kritik_saran` (`id`, `tgl`, `nama`, `email`, `komentar`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_info_pengumuman_admin`
+-- Table structure for table `tbl_info_pengumuman_admin`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_info_pengumuman_admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
   `tgl` datetime NOT NULL,
   `pengumuman` varchar(100) NOT NULL,
-  `id_penambah` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `pengumuman_fk` (`id_penambah`)
+  `id_penambah` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data untuk tabel `tbl_info_pengumuman_admin`
+-- Dumping data for table `tbl_info_pengumuman_admin`
 --
 
 INSERT INTO `tbl_info_pengumuman_admin` (`id`, `judul`, `tgl`, `pengumuman`, `id_penambah`) VALUES
@@ -280,22 +322,20 @@ INSERT INTO `tbl_info_pengumuman_admin` (`id`, `judul`, `tgl`, `pengumuman`, `id
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_info_pengumuman_guru`
+-- Table structure for table `tbl_info_pengumuman_guru`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_info_pengumuman_guru` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nip` varchar(20) NOT NULL,
   `id_mapel` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
   `tgl` datetime NOT NULL,
-  `pengumuman` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `pengumuman_guru_fk` (`nip`)
+  `pengumuman` text NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
--- Dumping data untuk tabel `tbl_info_pengumuman_guru`
+-- Dumping data for table `tbl_info_pengumuman_guru`
 --
 
 INSERT INTO `tbl_info_pengumuman_guru` (`id`, `nip`, `id_mapel`, `judul`, `tgl`, `pengumuman`) VALUES
@@ -304,76 +344,69 @@ INSERT INTO `tbl_info_pengumuman_guru` (`id`, `nip`, `id_mapel`, `judul`, `tgl`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_pembelajaran_diskusi`
+-- Table structure for table `tbl_pembelajaran_diskusi`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_pembelajaran_diskusi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `pengirim` int(20) NOT NULL,
   `waktu` datetime NOT NULL,
   `isi` varchar(250) NOT NULL,
   `id_mapel` int(11) NOT NULL,
   `nip` varchar(20) NOT NULL,
-  `is_guru` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `diskusi_1` (`id_mapel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `is_guru` tinyint(1) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `tbl_pembelajaran_diskusi`
+-- Dumping data for table `tbl_pembelajaran_diskusi`
 --
 
 INSERT INTO `tbl_pembelajaran_diskusi` (`id`, `pengirim`, `waktu`, `isi`, `id_mapel`, `nip`, `is_guru`) VALUES
-(1, 2147483647, '2015-06-30 21:16:25', 'mari diskusi', 14, '196101111982041001', 1);
+(1, 2147483647, '2015-06-30 21:16:25', 'mari diskusi', 14, '196101111982041001', 1),
+(2, 121307003, '2015-07-04 08:51:19', 'tes', 14, '196101111982041001', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_pembelajaran_materi`
+-- Table structure for table `tbl_pembelajaran_materi`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_pembelajaran_materi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `tgl` datetime NOT NULL,
   `judul` varchar(100) NOT NULL,
   `nama_file` varchar(100) NOT NULL,
   `nip` varchar(20) NOT NULL,
-  `id_mapel` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `pembelajaran_materi_ibfk_1` (`nip`),
-  KEY `pembelajaran_materi_ibfk_2` (`id_mapel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+  `id_mapel` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Dumping data untuk tabel `tbl_pembelajaran_materi`
+-- Dumping data for table `tbl_pembelajaran_materi`
 --
 
 INSERT INTO `tbl_pembelajaran_materi` (`id`, `tgl`, `judul`, `nama_file`, `nip`, `id_mapel`) VALUES
-(16, '2015-06-29 06:30:15', 'IX_MATEMATIKA_ALJABAR', 'IX_MATEMATIKA_ALJABAR.docx', '196101111982041001', 14);
+(16, '2015-06-29 06:30:15', 'IX_MATEMATIKA_ALJABAR', 'IX_MATEMATIKA_ALJABAR.docx', '196101111982041001', 14),
+(17, '2015-07-04 08:42:06', 'IX_Kimia_ALJABAR', 'IX_Kimia_ALJABAR.mp4', '196101111982041001', 10);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_pilihkelas`
+-- Table structure for table `tbl_pilihkelas`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_pilihkelas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nis` int(20) NOT NULL,
   `id_kelas` int(11) NOT NULL,
   `id_mapel` int(11) NOT NULL,
   `nip` varchar(20) DEFAULT NULL,
   `uts` double DEFAULT NULL,
   `uas` double DEFAULT NULL,
-  `kuis` double DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `pilihkelas_1` (`nis`),
-  KEY `pilihkelas_2` (`id_kelas`),
-  KEY `pilihkelas_3` (`id_mapel`)
+  `kuis` double DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
--- Dumping data untuk tabel `tbl_pilihkelas`
+-- Dumping data for table `tbl_pilihkelas`
 --
 
 INSERT INTO `tbl_pilihkelas` (`id`, `nis`, `id_kelas`, `id_mapel`, `nip`, `uts`, `uas`, `kuis`) VALUES
@@ -386,132 +419,325 @@ INSERT INTO `tbl_pilihkelas` (`id`, `nis`, `id_kelas`, `id_mapel`, `nip`, `uts`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_tugas_siswa`
+-- Table structure for table `tbl_tugas_siswa`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_tugas_siswa` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nis` int(20) NOT NULL,
   `tgl` datetime NOT NULL,
   `judul` varchar(150) NOT NULL,
   `nama_file` varchar(150) NOT NULL,
   `id_mapel` int(11) NOT NULL,
   `nip` varchar(20) NOT NULL,
-  `nilai` int(2) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `tugas_siswa` (`nis`),
-  KEY `tugas_siswa_fk1` (`id_mapel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `nilai` int(2) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data untuk tabel `tbl_tugas_siswa`
+-- Dumping data for table `tbl_tugas_siswa`
 --
 
 INSERT INTO `tbl_tugas_siswa` (`id`, `nis`, `tgl`, `judul`, `nama_file`, `id_mapel`, `nip`, `nilai`) VALUES
 (1, 121307003, '2015-06-30 21:20:01', 'IX_MATEMATIKA_TUGAS1', '121307003_IX_MATEMATIKA_TUGAS1.docx', 14, '196101111982041001', 0),
 (3, 121307003, '2015-06-30 22:42:13', 'IX_Biologi_TUGAS1', '121307003_IX_Biologi_TUGAS1.docx', 8, '195805091981031006', 0),
-(4, 121307024, '2015-07-03 08:08:40', 'IXC_BIOLOGI_TUGAS1', '121307024_IXC_BIOLOGI_TUGAS1.docx', 8, '195805091981031006', 0);
+(4, 121307024, '2015-07-03 08:08:40', 'IXC_BIOLOGI_TUGAS1', '121307024_IXC_BIOLOGI_TUGAS1.docx', 8, '195805091981031006', 0),
+(5, 121307003, '2015-07-04 08:49:53', 'IX_MATEMATIKA_TUGAS1', '121307003_IX_MATEMATIKA_TUGAS1.docx', 14, '196101111982041001', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_user` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+`id_user` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `screen_name` varchar(150) NOT NULL,
-  PRIMARY KEY (`id_user`)
+  `screen_name` varchar(150) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data untuk tabel `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `screen_name`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator');
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Indexes for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_data_guru`
+-- Indexes for table `tbl_data_guru`
 --
 ALTER TABLE `tbl_data_guru`
-  ADD CONSTRAINT `guru_admin_fk` FOREIGN KEY (`id_penambah`) REFERENCES `tbl_user` (`id_user`),
-  ADD CONSTRAINT `guru_fk` FOREIGN KEY (`mapel`) REFERENCES `tbl_data_mapel` (`id`);
+ ADD PRIMARY KEY (`nip`), ADD KEY `guru_fk` (`mapel`), ADD KEY `guru_admin_fk` (`id_penambah`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_data_kelas`
+-- Indexes for table `tbl_data_kelas`
 --
 ALTER TABLE `tbl_data_kelas`
-  ADD CONSTRAINT `tbl_data_kelas_ibfk_1` FOREIGN KEY (`id_penambah`) REFERENCES `tbl_user` (`id_user`),
-  ADD CONSTRAINT `tbl_data_kelas_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+ ADD PRIMARY KEY (`id`), ADD KEY `kelas_fk` (`nip`), ADD KEY `kelas_admin_fk` (`id_penambah`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_detail_guru`
+-- Indexes for table `tbl_data_mapel`
+--
+ALTER TABLE `tbl_data_mapel`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_data_siswa`
+--
+ALTER TABLE `tbl_data_siswa`
+ ADD PRIMARY KEY (`nis`);
+
+--
+-- Indexes for table `tbl_detail_guru`
 --
 ALTER TABLE `tbl_detail_guru`
-  ADD CONSTRAINT `tbl_detail_guru_ibfk_1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`),
-  ADD CONSTRAINT `tbl_detail_guru_ibfk_2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`),
-  ADD CONSTRAINT `tbl_detail_guru_ibfk_3` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+ ADD PRIMARY KEY (`id_detail`), ADD KEY `detail_guru_fk` (`nip`), ADD KEY `detail_guru_fk1` (`id_mapel`), ADD KEY `detail_guru_fk2` (`id_kelas`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_detail_kelas`
+-- Indexes for table `tbl_detail_kelas`
 --
 ALTER TABLE `tbl_detail_kelas`
-  ADD CONSTRAINT `kelas_detail1` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`),
-  ADD CONSTRAINT `kelas_detail2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `kelas_detail1` (`nis`), ADD KEY `kelas_detail2` (`id_kelas`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_info_cuitan`
+-- Indexes for table `tbl_diskusi`
+--
+ALTER TABLE `tbl_diskusi`
+ ADD PRIMARY KEY (`id_diskusi`);
+
+--
+-- Indexes for table `tbl_diskusi_detail`
+--
+ALTER TABLE `tbl_diskusi_detail`
+ ADD PRIMARY KEY (`id_diskusi_detail`);
+
+--
+-- Indexes for table `tbl_info_berita`
+--
+ALTER TABLE `tbl_info_berita`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_info_cuitan`
 --
 ALTER TABLE `tbl_info_cuitan`
-  ADD CONSTRAINT `tbl_info_cuitan_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+ ADD PRIMARY KEY (`id`), ADD KEY `cuitan_fk` (`nip`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_info_pengumuman_admin`
+-- Indexes for table `tbl_info_kritik_saran`
+--
+ALTER TABLE `tbl_info_kritik_saran`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_info_pengumuman_admin`
 --
 ALTER TABLE `tbl_info_pengumuman_admin`
-  ADD CONSTRAINT `pengumuman_fk` FOREIGN KEY (`id_penambah`) REFERENCES `tbl_user` (`id_user`);
+ ADD PRIMARY KEY (`id`), ADD KEY `pengumuman_fk` (`id_penambah`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_info_pengumuman_guru`
+-- Indexes for table `tbl_info_pengumuman_guru`
 --
 ALTER TABLE `tbl_info_pengumuman_guru`
-  ADD CONSTRAINT `tbl_info_pengumuman_guru_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+ ADD PRIMARY KEY (`id`), ADD KEY `pengumuman_guru_fk` (`nip`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_pembelajaran_diskusi`
+-- Indexes for table `tbl_pembelajaran_diskusi`
 --
 ALTER TABLE `tbl_pembelajaran_diskusi`
-  ADD CONSTRAINT `diskusi_1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `diskusi_1` (`id_mapel`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_pembelajaran_materi`
+-- Indexes for table `tbl_pembelajaran_materi`
 --
 ALTER TABLE `tbl_pembelajaran_materi`
-  ADD CONSTRAINT `tbl_pembelajaran_materi_ibfk_1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`),
-  ADD CONSTRAINT `tbl_pembelajaran_materi_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+ ADD PRIMARY KEY (`id`), ADD KEY `pembelajaran_materi_ibfk_1` (`nip`), ADD KEY `pembelajaran_materi_ibfk_2` (`id_mapel`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_pilihkelas`
+-- Indexes for table `tbl_pilihkelas`
 --
 ALTER TABLE `tbl_pilihkelas`
-  ADD CONSTRAINT `pilihkelas_1` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`),
-  ADD CONSTRAINT `pilihkelas_2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`),
-  ADD CONSTRAINT `pilihkelas_3` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`),
-  ADD CONSTRAINT `pilihkelas_nis` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`);
+ ADD PRIMARY KEY (`id`), ADD KEY `pilihkelas_1` (`nis`), ADD KEY `pilihkelas_2` (`id_kelas`), ADD KEY `pilihkelas_3` (`id_mapel`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_tugas_siswa`
+-- Indexes for table `tbl_tugas_siswa`
 --
 ALTER TABLE `tbl_tugas_siswa`
-  ADD CONSTRAINT `tugas_siswa` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`),
-  ADD CONSTRAINT `tugas_siswa_fk1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `tugas_siswa` (`nis`), ADD KEY `tugas_siswa_fk1` (`id_mapel`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+ ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_data_kelas`
+--
+ALTER TABLE `tbl_data_kelas`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `tbl_data_mapel`
+--
+ALTER TABLE `tbl_data_mapel`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `tbl_detail_guru`
+--
+ALTER TABLE `tbl_detail_guru`
+MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `tbl_detail_kelas`
+--
+ALTER TABLE `tbl_detail_kelas`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `tbl_diskusi`
+--
+ALTER TABLE `tbl_diskusi`
+MODIFY `id_diskusi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `tbl_diskusi_detail`
+--
+ALTER TABLE `tbl_diskusi_detail`
+MODIFY `id_diskusi_detail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `tbl_info_berita`
+--
+ALTER TABLE `tbl_info_berita`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tbl_info_cuitan`
+--
+ALTER TABLE `tbl_info_cuitan`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `tbl_info_kritik_saran`
+--
+ALTER TABLE `tbl_info_kritik_saran`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_info_pengumuman_admin`
+--
+ALTER TABLE `tbl_info_pengumuman_admin`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_info_pengumuman_guru`
+--
+ALTER TABLE `tbl_info_pengumuman_guru`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `tbl_pembelajaran_diskusi`
+--
+ALTER TABLE `tbl_pembelajaran_diskusi`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_pembelajaran_materi`
+--
+ALTER TABLE `tbl_pembelajaran_materi`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `tbl_pilihkelas`
+--
+ALTER TABLE `tbl_pilihkelas`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT for table `tbl_tugas_siswa`
+--
+ALTER TABLE `tbl_tugas_siswa`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_data_guru`
+--
+ALTER TABLE `tbl_data_guru`
+ADD CONSTRAINT `guru_admin_fk` FOREIGN KEY (`id_penambah`) REFERENCES `tbl_user` (`id_user`),
+ADD CONSTRAINT `guru_fk` FOREIGN KEY (`mapel`) REFERENCES `tbl_data_mapel` (`id`);
+
+--
+-- Constraints for table `tbl_data_kelas`
+--
+ALTER TABLE `tbl_data_kelas`
+ADD CONSTRAINT `tbl_data_kelas_ibfk_1` FOREIGN KEY (`id_penambah`) REFERENCES `tbl_user` (`id_user`),
+ADD CONSTRAINT `tbl_data_kelas_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_detail_guru`
+--
+ALTER TABLE `tbl_detail_guru`
+ADD CONSTRAINT `tbl_detail_guru_ibfk_1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`),
+ADD CONSTRAINT `tbl_detail_guru_ibfk_2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`),
+ADD CONSTRAINT `tbl_detail_guru_ibfk_3` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_detail_kelas`
+--
+ALTER TABLE `tbl_detail_kelas`
+ADD CONSTRAINT `kelas_detail1` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`),
+ADD CONSTRAINT `kelas_detail2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`);
+
+--
+-- Constraints for table `tbl_info_cuitan`
+--
+ALTER TABLE `tbl_info_cuitan`
+ADD CONSTRAINT `tbl_info_cuitan_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_info_pengumuman_admin`
+--
+ALTER TABLE `tbl_info_pengumuman_admin`
+ADD CONSTRAINT `pengumuman_fk` FOREIGN KEY (`id_penambah`) REFERENCES `tbl_user` (`id_user`);
+
+--
+-- Constraints for table `tbl_info_pengumuman_guru`
+--
+ALTER TABLE `tbl_info_pengumuman_guru`
+ADD CONSTRAINT `tbl_info_pengumuman_guru_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pembelajaran_diskusi`
+--
+ALTER TABLE `tbl_pembelajaran_diskusi`
+ADD CONSTRAINT `diskusi_1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`);
+
+--
+-- Constraints for table `tbl_pembelajaran_materi`
+--
+ALTER TABLE `tbl_pembelajaran_materi`
+ADD CONSTRAINT `tbl_pembelajaran_materi_ibfk_1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`),
+ADD CONSTRAINT `tbl_pembelajaran_materi_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `tbl_data_guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pilihkelas`
+--
+ALTER TABLE `tbl_pilihkelas`
+ADD CONSTRAINT `pilihkelas_1` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`),
+ADD CONSTRAINT `pilihkelas_2` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_data_kelas` (`id`),
+ADD CONSTRAINT `pilihkelas_3` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`),
+ADD CONSTRAINT `pilihkelas_nis` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`);
+
+--
+-- Constraints for table `tbl_tugas_siswa`
+--
+ALTER TABLE `tbl_tugas_siswa`
+ADD CONSTRAINT `tugas_siswa` FOREIGN KEY (`nis`) REFERENCES `tbl_data_siswa` (`nis`),
+ADD CONSTRAINT `tugas_siswa_fk1` FOREIGN KEY (`id_mapel`) REFERENCES `tbl_data_mapel` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

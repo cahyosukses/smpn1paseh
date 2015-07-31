@@ -72,6 +72,9 @@
 		elseif ($aksi == 'lihatnilai') {
 			include_once('../siswa/lihatnilai.php');
 		}
+		elseif ($aksi == 'diskusi') {
+			include_once('../siswa/diskusi_detail.php');
+		}
 		else{
 			include_once('../siswa/home.php');
 		}
